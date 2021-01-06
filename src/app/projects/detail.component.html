@@ -1,0 +1,39 @@
+<h1 *ngFor="let project of projects">
+  {{ project.ProjectName }}
+</h1>
+<div *ngFor="let project of projects" style="margin-top: 60px">
+  <div>
+    <h4>
+      Project ID
+    </h4>
+    <p style="font-size: 20px">{{ project._id}}</p>
+  </div>
+  <div>
+    <h4>Nama Owner</h4>
+    <p style="font-size: 20px">{{ project.OwnerName }}</p>
+  </div>
+  <div>
+    <h4>Kategori</h4>
+    <p style="font-size: 20px">{{project.Category}}</p>
+  </div>
+  <div>
+    <h4>Harga</h4>
+    <p style="font-size: 20px">Rp.{{project.Price}},-</p>
+  </div>
+  <div>
+    <h4>Durasi Pengerjaan</h4>
+    <p style="font-size: 20px">{{project.Duration}}</p>
+  </div>
+  <div>
+    <h4>Deskripsi Pekerjaan</h4>
+    <p style="font-size: 20px">{{project.Remarks}}</p>
+  </div>
+
+  <img [src]="imageSrc" *ngIf="imageSrc" style="height: 700px; width:500px">
+
+  <div class="d-flex justify-content-end">
+    <a *ngIf="userId !== project.OwnerID" routerLink="/project/{{project._id}}/nego" class="btn btn-md btn-info mr-1">Nego</a>
+    <a *ngIf="userId !== project.OwnerID" routerLink="/project/take-project/{{project._id}}" class="btn btn-md btn-primary mr-1">Ambil Project</a>
+    <a routerLink="/project" class="btn btn-md btn-danger mr-1" >Cancel</a>
+  </div>
+</div>

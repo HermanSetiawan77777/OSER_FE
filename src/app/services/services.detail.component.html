@@ -1,0 +1,40 @@
+<div *ngFor="let service of services">
+  <h1>
+    {{service.ServicesName}}
+  </h1>
+</div>
+<div *ngFor="let service of services" style="margin-top: 60px">
+  <div>
+    <h4>
+      Services ID
+    </h4>
+    <p style="font-size: 20px">{{service._id}}</p>
+  </div>
+  <div>
+    <h4>Nama Owner</h4>
+    <p style="font-size: 20px">{{service.OwnerName}}</p>
+  </div>
+  <div>
+    <h4>Kategori</h4>
+    <p style="font-size: 20px">{{service.Category}}</p>
+  </div>
+  <div>
+    <h4>Harga</h4>
+    <p style="font-size: 20px">{{service.Price}}</p>
+  </div>
+  <div>
+    <h4>Durasi Pengerjaan</h4>
+    <p style="font-size: 20px">{{service.Duration}}</p>
+  </div>
+  <div>
+    <h4>Deskripsi Pekerjaan</h4>
+    <p style="font-size: 15px">{{service.Remarks}}</p>
+  </div>
+
+  <img [src]="imageSrc" *ngIf="imageSrc"  style="height: 700px; width:700px">
+
+  <div class="d-flex justify-content-end" style="margin-top: 20px">
+    <a *ngIf="userId !== service.OwnerID" routerLink="../services/take-services/{{service._id}}" class="btn btn-md btn-primary mr-1">Ambil Services</a>
+    <a routerLink="/service" class="btn btn-md btn-danger mr-1" >Cancel</a>
+  </div>
+</div>
