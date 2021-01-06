@@ -6,20 +6,23 @@ import { ScheduleLayoutComponent } from './schedule-layout.component';
 import { ScheduleListComponent } from './schedule-list.component';
 import { ScheduleDetailComponent } from './schedule-detail.component';
 import { ScheduleListByOwnerComponent } from './schedule-list-by-owner.component';
-
-
+import { TooltipModule } from 'ng2-tooltip-directive';
+import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     ScheduleRoutingModule,
+    TooltipModule,
+    SharedModule,
   ],
+  exports: [ScheduleListByOwnerComponent, ScheduleListComponent],
   declarations: [
     ScheduleLayoutComponent,
     ScheduleListComponent,
     ScheduleDetailComponent,
     ScheduleListByOwnerComponent,
-  ]
+  ],
 })
-export class ScheduleModule { }
+export class ScheduleModule {}

@@ -1,0 +1,52 @@
+<h1>Nego Harga</h1>
+<table class="table table-striped" >
+  <thead>
+  <tr>
+    <th style="width: 15%">Nama Owner</th>
+    <th style="width: 15%">Status</th>
+    <th style="width: 15%">Kategori</th>
+    <th style="width: 15%">Nama Project</th>
+    <th style="width: 15%">Harga</th>
+    <th style="width: 15%">Durasi Pengerjaan</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let requestPrice of pageOfItems">
+    <td>{{requestPrice.OwnerName}}</td>
+    <td>{{requestPrice.status}}</td>
+    <td>{{requestPrice.Category}}</td>
+    <td>{{requestPrice.AssignmentName}}</td>
+    <td>Rp.{{requestPrice.Price}},-</td>
+    <td>{{requestPrice.Duration}} Hari</td>
+    <td style="white-space: nowrap">
+      <a routerLink="../project/detail/{{requestPrice._id}}" class="btn btn-sm btn-info mr-1">Detail</a>
+    </td>
+  </tr>
+  <tr *ngIf="!requestPrice">
+    <td colspan="4" class="text-center">
+      <span class="spinner-border spinner-border-lg align-center"></span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="d-flex justify-content-center">
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
+      <a (click)="setPageRequestPrice(1)" class="page-link">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
+      <a (click)="setPageRequestPrice(pager.currentPage - 1)" class="page-link">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item number-item">
+      <a (click)="setPageRequestPrice(page)" class="page-link">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
+      <a (click)="setPageRequestPrice(pager.currentPage + 1)" class="page-link">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
+      <a (click)="setPageRequestPrice(pager.totalPages)" class="page-link">Last</a>
+    </li>
+  </ul>
+</div>
+
+<!--    <jw-pagination [items]="projects" (changePage)="onChangePage($event)"></jw-pagination>-->

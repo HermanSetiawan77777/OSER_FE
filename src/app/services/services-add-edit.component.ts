@@ -5,9 +5,11 @@ import { first } from 'rxjs/operators';
 import { AlertService } from '../_services';
 import { JobServicesService } from '../_services';
 import { Observable } from 'rxjs';
+import { environment } from '@environments/environment';
 
 @Component({ templateUrl: 'services-add-edit.component.html' })
 export class ServicesAddEditComponent implements OnInit {
+  services = null;
   form: FormGroup;
   id: string;
   isAddMode = true;
@@ -16,43 +18,59 @@ export class ServicesAddEditComponent implements OnInit {
   submitted = false;
   fileImage: File;
 
-
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private servicesServices: JobServicesService,
-    private alertService: AlertService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit() {
     const url = window.location.pathname;
-    this.id  = url.substring(url.lastIndexOf('/') + 1);
-    const type  = url.split('/')[3];
-    if (type === 'edit'){
+    this.id = url.substring(url.lastIndexOf('/') + 1);
+    const type = url.split('/')[3];
+
+    if (type === 'edit') {
       this.isAddMode = false;
     }
-    console.log(this.isAddMode);
-    console.log(type);
+
     this.form = this.formBuilder.group({
       servicesname: ['', Validators.required],
       category: ['', Validators.required],
       duration: ['', Validators.required],
       price: ['', Validators.required],
       remarks: ['', Validators.required],
-      image: ['', Validators.required]
+      image: [''],
     });
 
-    // if (!this.isAddMode) {
-    //   this.servicesServices.getById(this.id)
-    //     .pipe(first())
-    //     .subscribe(x => this.form.patchValue(x));
-    // }
+    if (!this.isAddMode) {
+      this.servicesServices
+        .detailServices(this.id)
+        .pipe(first())
+        .subscribe((services) => {
+          this.services = services.message;
+          if (services.message[0] != null || services.message[0] != undefined) {
+            const imageId = this.services[0].Image.split('/')[1];
+            this.imageSrc = `${environment.apiUrl}/files/ViewLicense/${imageId}`;
+          }
+
+          this.form.patchValue({
+            category: this.services[0].Category,
+            servicesname: this.services[0].ServicesName,
+            price: this.services[0].Price,
+            duration: this.services[0].Duration,
+            remarks: this.services[0].Remarks,
+          });
+        });
+    }
   }
 
   // convenience getter for easy access to form fields
   // tslint:disable-next-line:typedef
-  get f() { return this.form.controls; }
+  get f() {
+    return this.form.controls;
+  }
 
   // stop here if form is invalid
   // tslint:disable-next-line:typedef
@@ -67,42 +85,46 @@ export class ServicesAddEditComponent implements OnInit {
 
     this.loading = true;
     if (this.isAddMode) {
-      console.log('save');
       this.registerServices();
     } else {
-      console.log('edit');
       this.updateServices();
     }
   }
 
-   private registerServices() {
+  private registerServices() {
     // @ts-ignore
-     this.servicesServices.registerServices(this.form.value, this.fileImage)
+    this.servicesServices
+      .registerServices(this.form.value, this.fileImage)
       .pipe(first())
       .subscribe({
         next: () => {
-          this.alertService.success('Berhasil Membuat Services', { keepAfterRouteChange: true });
+          this.alertService.success('Berhasil Membuat Services', {
+            keepAfterRouteChange: true,
+          });
           this.router.navigate(['/service'], { relativeTo: this.route });
         },
-        error: error => {
+        error: (error) => {
           this.alertService.error(error);
           this.loading = false;
-        }
+        },
       });
   }
 
   private updateServices() {
-    this.servicesServices.updateServices(this.id, this.form.value, this.fileImage)
+    this.servicesServices
+      .updateServices(this.id, this.form.value, this.fileImage)
       .pipe(first())
       .subscribe({
         next: () => {
-          this.alertService.success('Update successful', { keepAfterRouteChange: true });
+          this.alertService.success('Update successful', {
+            keepAfterRouteChange: true,
+          });
           this.router.navigate(['/service'], { relativeTo: this.route });
         },
-        error: error => {
+        error: (error) => {
           this.alertService.error(error);
           this.loading = false;
-        }
+        },
       });
   }
 
@@ -110,23 +132,18 @@ export class ServicesAddEditComponent implements OnInit {
   onFileChange(event) {
     const reader = new FileReader();
 
-    if(event.target.files && event.target.files.length) {
+    if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       this.fileImage = file;
       reader.readAsDataURL(file);
 
       reader.onload = () => {
-
         this.imageSrc = reader.result as string;
 
         this.form.patchValue({
-          fileSource: reader.result
+          fileSource: reader.result,
         });
-
       };
-
     }
   }
 }
-
-

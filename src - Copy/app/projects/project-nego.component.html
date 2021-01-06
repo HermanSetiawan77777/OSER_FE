@@ -1,0 +1,21 @@
+<h1>Nego Project</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="assignmentid">ID</label>
+    <input type="text" formControlName="assignmentid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.assignmentid.errors }" />
+    <div *ngIf="submitted && f.assignmentid.errors" class="invalid-feedback">
+      <div *ngIf="f.assignmentid.errors.required">Masukan ID Services</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="category">Kategori</label>
+    <input type="text" formControlName="category" value="services" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Save
+    </button>
+    <a routerLink="/project" class="btn btn-link">Cancel</a>
+  </div>
+</form>

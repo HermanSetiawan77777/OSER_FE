@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectServices } from '../_services';
 import { first } from 'rxjs/operators';
 import { ScheduleServices } from '../_services/schedule.services';
 
 @Component({
-  templateUrl: 'schedule-list.component.html'
+  templateUrl: 'schedule-list.component.html',
 })
-
-export class ScheduleListComponent implements OnInit{
+export class ScheduleListComponent implements OnInit {
   schedules = null;
   users: null;
 
@@ -15,9 +13,10 @@ export class ScheduleListComponent implements OnInit{
 
   ngOnInit() {
     const userId = localStorage.getItem('userid').slice(1, -1);
-    this.scheduleService.getScheduleByUserId(userId)
+    this.scheduleService
+      .getScheduleByUserId(userId)
       .pipe(first())
-      .subscribe(schedule => {
+      .subscribe((schedule) => {
         console.log(schedule);
         this.schedules = schedule.message;
       });
