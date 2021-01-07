@@ -1,5 +1,5 @@
 ﻿<div class="card">
-    <h4 class="card-header">Login</h4>
+    <h4 class="card-header">Masuk</h4>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-group">
@@ -10,10 +10,10 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Kata Sandi</label>
                 <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                    <div *ngIf="f.password.errors.required">Masukan Password Anda</div>
+                    <div *ngIf="f.password.errors.required">Masukan Kata Sandi Anda</div>
                 </div>
             </div>
           <div class="form-group">
@@ -22,13 +22,13 @@
               Login
             </button>
             <a routerLink="../../" style="text-align: end" class="btn btn-link">Cancel</a>
-            <a routerLink="../forgotpassword" style="justify-items: end" class="btn btn-link">Lupa Password</a>
+            <a routerLink="../forgotpassword" style="justify-items: end" class="btn btn-link">Lupa Kata Sandi</a>
           </div>
           <div class="form-group">
-            <a routerLink="../emailverify" style="padding-left: 0px" class="btn btn-link">Verifikasi Email Disini!</a>
+            <a routerLink="../emailverify" style="padding-left: 0px" class="btn btn-link">Verifikasi Email Disini</a>
           </div>
           <div class="form-group">
-            <a routerLink="../register" style="padding-left: 0px" class="btn btn-link">Register Disini!</a>
+            <a routerLink="../register" style="padding-left: 0px" class="btn btn-link">Daftar Disini</a>
           </div>
         </form>
     </div>

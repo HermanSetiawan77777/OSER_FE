@@ -1,13 +1,13 @@
 ﻿<!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
   <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-    <a class="nav-item nav-link" routerLink="/project" routerLinkActive="active">Project</a>
-    <a class="nav-item nav-link" routerLink="/service" routerLinkActive="active">Service</a>
-    <a class="nav-item nav-link" routerLink="/schedule" routerLinkActive="active">Schedule</a>
+    <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Beranda</a>
+    <a class="nav-item nav-link" routerLink="/project" routerLinkActive="active">Proyek</a>
+    <a class="nav-item nav-link" routerLink="/service" routerLinkActive="active">Jasa</a>
+    <a class="nav-item nav-link" routerLink="/schedule" routerLinkActive="active">Jadwal</a>
     <a class="nav-item nav-link" routerLink="/requestprice" routerLinkActive="active">Nego</a>
-    <a class="nav-item nav-link" routerLink="/profile" routerLinkActive="active">profile</a>
-    <a class="nav-item nav-link d-flex align-items-end" (click)="logout()">Logout</a>
+    <a class="nav-item nav-link" routerLink="/profile" routerLinkActive="active">Profil</a>
+    <a class="nav-item nav-link d-flex align-items-end" (click)="logout()">Keluar</a>
   </div>
 </nav>
 
@@ -40,15 +40,15 @@
 
       <!-- Grid column -->
       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+        <h6 class="text-uppercase mb-4 font-weight-bold">Produk</h6>
         <p>
-          <a routerLink="../project">Projects</a>
+          <a routerLink="../project">Proyek</a>
         </p>
         <p>
-          <a routerLink="../service">Services</a>
+          <a routerLink="../service">Jasa</a>
         </p>
         <p>
-          <a href="../schedule">Schedule</a>
+          <a href="../schedule">Jadwal</a>
         </p>
       </div>
       <!-- Grid column -->
@@ -57,7 +57,7 @@
 
       <!-- Grid column -->
       <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+        <h6 class="text-uppercase mb-4 font-weight-bold">Laman Berguna</h6>
         <p>
           <a href="../faq">FAQ</a>
         </p>
@@ -68,9 +68,15 @@
 
       <!-- Grid column -->
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+        <h6 class="text-uppercase mb-4 font-weight-bold">kontak</h6>
         <p>
           Indonesia</p>
+        <div>
+          Bantuan Pelanggan:
+          <p>
+            kerja.oser@gmail.com
+          </p>
+        </div>
 
       </div>
       <!-- Grid column -->
