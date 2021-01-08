@@ -53,6 +53,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _schedule_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./schedule-list.component */ "Lrvp");
 /* harmony import */ var _schedule_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./schedule-detail.component */ "Tg08");
 /* harmony import */ var _schedule_list_by_owner_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./schedule-list-by-owner.component */ "xfuZ");
+/* harmony import */ var ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ng2-tooltip-directive */ "lVl8");
+/* harmony import */ var _app_shared_shared_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @app/shared/shared.module */ "PCNd");
+
+
 
 
 
@@ -69,13 +73,17 @@ ScheduleModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInj
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"],
             _schedule_routing_module__WEBPACK_IMPORTED_MODULE_3__["ScheduleRoutingModule"],
+            ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_8__["TooltipModule"],
+            _app_shared_shared_module__WEBPACK_IMPORTED_MODULE_9__["SharedModule"],
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ScheduleModule, { declarations: [_schedule_layout_component__WEBPACK_IMPORTED_MODULE_4__["ScheduleLayoutComponent"],
         _schedule_list_component__WEBPACK_IMPORTED_MODULE_5__["ScheduleListComponent"],
         _schedule_detail_component__WEBPACK_IMPORTED_MODULE_6__["ScheduleDetailComponent"],
         _schedule_list_by_owner_component__WEBPACK_IMPORTED_MODULE_7__["ScheduleListByOwnerComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"],
-        _schedule_routing_module__WEBPACK_IMPORTED_MODULE_3__["ScheduleRoutingModule"]] }); })();
+        _schedule_routing_module__WEBPACK_IMPORTED_MODULE_3__["ScheduleRoutingModule"],
+        ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_8__["TooltipModule"],
+        _app_shared_shared_module__WEBPACK_IMPORTED_MODULE_9__["SharedModule"]], exports: [_schedule_list_by_owner_component__WEBPACK_IMPORTED_MODULE_7__["ScheduleListByOwnerComponent"], _schedule_list_component__WEBPACK_IMPORTED_MODULE_5__["ScheduleListComponent"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ScheduleModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
@@ -83,13 +91,16 @@ ScheduleModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInj
                     _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                     _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"],
                     _schedule_routing_module__WEBPACK_IMPORTED_MODULE_3__["ScheduleRoutingModule"],
+                    ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_8__["TooltipModule"],
+                    _app_shared_shared_module__WEBPACK_IMPORTED_MODULE_9__["SharedModule"],
                 ],
+                exports: [_schedule_list_by_owner_component__WEBPACK_IMPORTED_MODULE_7__["ScheduleListByOwnerComponent"], _schedule_list_component__WEBPACK_IMPORTED_MODULE_5__["ScheduleListComponent"]],
                 declarations: [
                     _schedule_layout_component__WEBPACK_IMPORTED_MODULE_4__["ScheduleLayoutComponent"],
                     _schedule_list_component__WEBPACK_IMPORTED_MODULE_5__["ScheduleListComponent"],
                     _schedule_detail_component__WEBPACK_IMPORTED_MODULE_6__["ScheduleDetailComponent"],
                     _schedule_list_by_owner_component__WEBPACK_IMPORTED_MODULE_7__["ScheduleListByOwnerComponent"],
-                ]
+                ],
             }]
     }], null, null); })();
 
@@ -119,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function ScheduleListComponent_tr_16_Template(rf, ctx) { if (rf & 1) {
+function ScheduleListComponent_tr_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
@@ -136,9 +147,12 @@ function ScheduleListComponent_tr_16_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "td");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "td", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "a", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Detail");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "td");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "td", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "a", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Detail");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -155,12 +169,14 @@ function ScheduleListComponent_tr_16_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Rp.", schedule_r2.Price, ",-");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schedule_r2.status);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "schedule/detail/", schedule_r2._id, "");
 } }
-function ScheduleListComponent_tr_17_Template(rf, ctx) { if (rf & 1) {
+function ScheduleListComponent_tr_19_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "span", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "span", 9);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
@@ -171,16 +187,17 @@ class ScheduleListComponent {
     }
     ngOnInit() {
         const userId = localStorage.getItem('userid').slice(1, -1);
-        this.scheduleService.getScheduleByUserId(userId)
+        this.scheduleService
+            .getScheduleByUserId(userId)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["first"])())
-            .subscribe(schedule => {
+            .subscribe((schedule) => {
             console.log(schedule);
             this.schedules = schedule.message;
         });
     }
 }
 ScheduleListComponent.ɵfac = function ScheduleListComponent_Factory(t) { return new (t || ScheduleListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_schedule_services__WEBPACK_IMPORTED_MODULE_2__["ScheduleServices"])); };
-ScheduleListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ScheduleListComponent, selectors: [["ng-component"]], decls: 20, vars: 2, consts: [[1, "table", "table-striped"], [2, "width", "20%"], [4, "ngFor", "ngForOf"], [4, "ngIf"], [2, "margin-top", "20px"], [2, "white-space", "nowrap"], [1, "btn", "btn-sm", "btn-info", "mr-1", 3, "routerLink"], ["colspan", "4", 1, "text-center"], [1, "spinner-border", "spinner-border-lg", "align-center"]], template: function ScheduleListComponent_Template(rf, ctx) { if (rf & 1) {
+ScheduleListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ScheduleListComponent, selectors: [["ng-component"]], decls: 22, vars: 2, consts: [[1, "table", "table-striped"], [2, "width", "20%"], [2, "width", "15%"], [4, "ngFor", "ngForOf"], [4, "ngIf"], [2, "margin-top", "20px"], [2, "white-space", "nowrap"], [1, "btn", "btn-sm", "btn-info", "mr-1", 3, "routerLink"], ["colspan", "4", 1, "text-center"], [1, "spinner-border", "spinner-border-lg", "align-center"]], template: function ScheduleListComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "List Project yang Anda Ambil");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -190,30 +207,33 @@ ScheduleListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "th", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Judul Pekerjaan");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "th", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "th", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Nama Pemilik");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "th", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "th", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Kategori");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "th", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "th", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Durasi Pengerjaan");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "th", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "th", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Harga");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "th", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Status");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "tbody");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, ScheduleListComponent_tr_16_Template, 14, 6, "tr", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, ScheduleListComponent_tr_17_Template, 3, 0, "tr", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "tbody");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, ScheduleListComponent_tr_18_Template, 16, 7, "tr", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, ScheduleListComponent_tr_19_Template, 3, 0, "tr", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](19, "app-schedule-by-owner");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "app-schedule-by-owner");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](18);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.schedules);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.schedules);
@@ -221,7 +241,7 @@ ScheduleListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ScheduleListComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-                templateUrl: 'schedule-list.component.html'
+                templateUrl: 'schedule-list.component.html',
             }]
     }], function () { return [{ type: _services_schedule_services__WEBPACK_IMPORTED_MODULE_2__["ScheduleServices"] }]; }, null); })();
 
@@ -312,10 +332,31 @@ function ScheduleDetailComponent_div_0_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", schedule_r2.ProjectName, " ");
 } }
 function ScheduleDetailComponent_div_1_img_26_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 9);
 } if (rf & 2) {
     const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx_r4.imageSrc, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+} }
+function ScheduleDetailComponent_div_1_button_28_Template(rf, ctx) { if (rf & 1) {
+    const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ScheduleDetailComponent_div_1_button_28_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9); const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r8.updateScheduleStatus("1"); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Accept Schedule");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function ScheduleDetailComponent_div_1_button_29_Template(rf, ctx) { if (rf & 1) {
+    const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ScheduleDetailComponent_div_1_button_29_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r11); const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r10.updateScheduleStatus("cancel"); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Cancel");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function ScheduleDetailComponent_div_1_button_30_Template(rf, ctx) { if (rf & 1) {
+    const _r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ScheduleDetailComponent_div_1_button_30_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r13); const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r12.updateScheduleStatus("2"); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " Finnish ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function ScheduleDetailComponent_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 2);
@@ -361,8 +402,11 @@ function ScheduleDetailComponent_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](26, ScheduleDetailComponent_div_1_img_26_Template, 1, 1, "img", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "div", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "a", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Back");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, ScheduleDetailComponent_div_1_button_28_Template, 2, 0, "button", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](29, ScheduleDetailComponent_div_1_button_29_Template, 2, 0, "button", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](30, ScheduleDetailComponent_div_1_button_30_Template, 2, 0, "button", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "a", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, "Back");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -370,7 +414,7 @@ function ScheduleDetailComponent_div_1_Template(rf, ctx) { if (rf & 1) {
     const schedule_r3 = ctx.$implicit;
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schedule_r3.UserName);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schedule_r3.OwnerName);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schedule_r3.Status);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
@@ -381,6 +425,12 @@ function ScheduleDetailComponent_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schedule_r3.Duration);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.imageSrc);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.acceptBtn == true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.cancelBtn == true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.finnishBtn == true);
 } }
 class ScheduleDetailComponent {
     constructor(scheduleServices, alertService, router, route) {
@@ -389,24 +439,74 @@ class ScheduleDetailComponent {
         this.router = router;
         this.route = route;
         this.schedules = null;
+        this.acceptBtn = false;
+        this.finnishBtn = false;
+        this.cancelBtn = false;
     }
     ngOnInit() {
         const url = window.location.pathname;
         const scheduleId = url.substring(url.lastIndexOf('/') + 1);
-        this.scheduleServices.getScheduleDetail(scheduleId)
+        this.userId = localStorage.getItem('userid').slice(1, -1);
+        this.scheduleServices
+            .getScheduleDetail(scheduleId)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["first"])())
-            .subscribe(schedules => {
+            .subscribe((schedules) => {
             this.schedules = schedules.message;
-            const imageId = this.schedules[0].Image.split('/')[1];
-            this.imageSrc = `${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl}/files/ViewLicense/${imageId}`;
-            console.log(scheduleId);
+            console.log(this.schedules);
+            console.log(`schedule id :${this.schedules[0].OwnerID} user id ${this.userId}`);
+            if (this.schedules[0].Image != undefined) {
+                const imageId = this.schedules[0].Image.split('/')[1];
+                this.imageSrc = `${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl}/files/ViewLicense/${imageId}`;
+            }
+            this.btnValidation();
+        });
+    }
+    btnValidation() {
+        if (this.schedules[0].OwnerID == this.userId) {
+            if (this.schedules[0].StatusNo == 0) {
+                this.acceptBtn = true;
+                this.cancelBtn = true;
+            }
+        }
+        else {
+            if (this.schedules[0].StatusNo == 0) {
+                this.cancelBtn = true;
+            }
+            else if (this.schedules[0].StatusNo == 1) {
+                this.finnishBtn = true;
+            }
+        }
+    }
+    updateScheduleStatus(status) {
+        if (status == 'cancel') {
+            if (this.schedules[0].OwnerID == this.userId) {
+                status = '99';
+            }
+            else {
+                status = '98';
+            }
+        }
+        this.scheduleServices
+            .UpdateScheduleStatus(this.schedules[0]._id, status)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["first"])())
+            .subscribe({
+            next: () => {
+                this.alertService.success('Schedule Updated', {
+                    keepAfterRouteChange: true,
+                });
+                this.router.navigate(['/schedule'], { relativeTo: this.route });
+            },
+            error: (error) => {
+                this.alertService.error(error);
+                this.loading = false;
+            },
         });
     }
 }
 ScheduleDetailComponent.ɵfac = function ScheduleDetailComponent_Factory(t) { return new (t || ScheduleDetailComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_schedule_services__WEBPACK_IMPORTED_MODULE_3__["ScheduleServices"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services__WEBPACK_IMPORTED_MODULE_4__["AlertService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"])); };
-ScheduleDetailComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ScheduleDetailComponent, selectors: [["ng-component"]], decls: 2, vars: 2, consts: [[4, "ngFor", "ngForOf"], ["style", "margin-top: 60px", 4, "ngFor", "ngForOf"], [2, "margin-top", "60px"], [2, "font-size", "20px"], ["style", "height: 700px; width:700px", 3, "src", 4, "ngIf"], [1, "d-flex", "justify-content-end", 2, "margin-top", "20px"], ["routerLink", "/schedule", 1, "btn", "btn-md", "btn-danger", "mr-1"], [2, "height", "700px", "width", "700px", 3, "src"]], template: function ScheduleDetailComponent_Template(rf, ctx) { if (rf & 1) {
+ScheduleDetailComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ScheduleDetailComponent, selectors: [["ng-component"]], decls: 2, vars: 2, consts: [[4, "ngFor", "ngForOf"], ["style", "margin-top: 60px", 4, "ngFor", "ngForOf"], [2, "margin-top", "60px"], [2, "font-size", "20px"], ["style", "height: 500px; width:500px", 3, "src", 4, "ngIf"], [1, "d-flex", "justify-content-end"], ["class", "btn btn-md btn-primary mr-1", 3, "click", 4, "ngIf"], ["class", "btn btn-md btn-danger mr-1", 3, "click", 4, "ngIf"], ["routerLink", "/schedule", 1, "btn", "btn-md", "btn-danger", "mr-1"], [2, "height", "500px", "width", "500px", 3, "src"], [1, "btn", "btn-md", "btn-primary", "mr-1", 3, "click"], [1, "btn", "btn-md", "btn-danger", "mr-1", 3, "click"]], template: function ScheduleDetailComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ScheduleDetailComponent_div_0_Template, 3, 1, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ScheduleDetailComponent_div_1_Template, 30, 6, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ScheduleDetailComponent_div_1_Template, 33, 9, "div", 1);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.schedules);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
@@ -415,7 +515,7 @@ ScheduleDetailComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ScheduleDetailComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-                templateUrl: 'schedule-detail.component.html'
+                templateUrl: 'schedule-detail.component.html',
             }]
     }], function () { return [{ type: _services_schedule_services__WEBPACK_IMPORTED_MODULE_3__["ScheduleServices"] }, { type: _services__WEBPACK_IMPORTED_MODULE_4__["AlertService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] }]; }, null); })();
 
@@ -462,7 +562,17 @@ class ScheduleServices {
     getById(id) {
         let header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
-        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl}/schedule/${id}`, { headers: header });
+        return this.http.get(`${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl}/schedule/${id}`, {
+            headers: header,
+        });
+    }
+    UpdateScheduleStatus(scheduleId, status) {
+        let header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
+        header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
+        console.log(localStorage.getItem('token').slice(1, -1));
+        return this.http.post(`${_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl}/schedule/UpdateScheduleStatus/${scheduleId}`, { status }, {
+            headers: header,
+        });
     }
 }
 ScheduleServices.ɵfac = function ScheduleServices_Factory(t) { return new (t || ScheduleServices)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
@@ -470,7 +580,7 @@ ScheduleServices.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ScheduleServices, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
-                providedIn: 'root'
+                providedIn: 'root',
             }]
     }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }]; }, null); })();
 
@@ -498,7 +608,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function ScheduleListByOwnerComponent_tr_16_Template(rf, ctx) { if (rf & 1) {
+function ScheduleListByOwnerComponent_tr_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
@@ -515,9 +625,12 @@ function ScheduleListByOwnerComponent_tr_16_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "td");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "td", 4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "a", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Detail");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "td");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "td", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "a", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Detail");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -534,12 +647,14 @@ function ScheduleListByOwnerComponent_tr_16_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Rp.", schedule_r2.Price, ",-");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](schedule_r2.Status);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("routerLink", "schedule/detail/", schedule_r2._id, "");
 } }
-function ScheduleListByOwnerComponent_tr_17_Template(rf, ctx) { if (rf & 1) {
+function ScheduleListByOwnerComponent_tr_19_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "span", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "span", 8);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
@@ -550,16 +665,17 @@ class ScheduleListByOwnerComponent {
     }
     ngOnInit() {
         const userId = localStorage.getItem('userid').slice(1, -1);
-        this.scheduleService.getScheduleByOwnerId(userId)
+        this.scheduleService
+            .getScheduleByOwnerId(userId)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["first"])())
-            .subscribe(schedule => {
+            .subscribe((schedule) => {
             console.log(schedule);
             this.schedules = schedule.message;
         });
     }
 }
 ScheduleListByOwnerComponent.ɵfac = function ScheduleListByOwnerComponent_Factory(t) { return new (t || ScheduleListByOwnerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_schedule_services__WEBPACK_IMPORTED_MODULE_2__["ScheduleServices"])); };
-ScheduleListByOwnerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ScheduleListByOwnerComponent, selectors: [["app-schedule-by-owner"]], decls: 18, vars: 2, consts: [[1, "table", "table-striped"], [2, "width", "20%"], [4, "ngFor", "ngForOf"], [4, "ngIf"], [2, "white-space", "nowrap"], [1, "btn", "btn-sm", "btn-info", "mr-1", 3, "routerLink"], ["colspan", "4", 1, "text-center"], [1, "spinner-border", "spinner-border-lg", "align-center"]], template: function ScheduleListByOwnerComponent_Template(rf, ctx) { if (rf & 1) {
+ScheduleListByOwnerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ScheduleListByOwnerComponent, selectors: [["app-schedule-by-owner"]], decls: 20, vars: 2, consts: [[1, "table", "table-striped"], [2, "width", "20%"], [2, "width", "15%"], [4, "ngFor", "ngForOf"], [4, "ngIf"], [2, "white-space", "nowrap"], [1, "btn", "btn-sm", "btn-info", "mr-1", 3, "routerLink"], ["colspan", "4", 1, "text-center"], [1, "spinner-border", "spinner-border-lg", "align-center"]], template: function ScheduleListByOwnerComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "List Pekerjaan Yang Anda Buat");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -569,27 +685,30 @@ ScheduleListByOwnerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__[
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "th", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Judul Pekerjaan");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "th", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "th", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Nama Pekerja");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "th", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "th", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Kategori");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "th", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "th", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Durasi Pengerjaan");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "th", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "th", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Harga");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "th", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Status");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "tbody");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, ScheduleListByOwnerComponent_tr_16_Template, 14, 6, "tr", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, ScheduleListByOwnerComponent_tr_17_Template, 3, 0, "tr", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "tbody");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, ScheduleListByOwnerComponent_tr_18_Template, 16, 7, "tr", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, ScheduleListByOwnerComponent_tr_19_Template, 3, 0, "tr", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](18);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.schedules);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.schedules);
