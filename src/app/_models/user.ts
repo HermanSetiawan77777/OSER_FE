@@ -11,5 +11,10 @@
   remarks: string;
   token: string;
   message: any;
+  linkedin: string;
+  tanggallahir: string;
+  workcat: string;
+  gender: string;
+  ktp: string;
 }
 

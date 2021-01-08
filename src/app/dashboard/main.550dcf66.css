@@ -1781,6 +1781,12 @@ ul.icons li .icon:before {
   width: 100%; }
 
 /* Wrapper */
+
+.wrapper-project {
+  padding: 8rem 0 6rem 0 ;
+  position: relative;
+  z-index: 1; }
+
 .wrapper {
   padding: 8rem 0 6rem 0 ;
   position: relative;
@@ -2078,6 +2084,19 @@ body.is-preload #banner:before {
   color: rgba(255, 255, 255, 0.75);
   background-attachment: fixed;
   background-image: linear-gradient(rgba(65, 131, 215, 1), rgba(206, 27, 40, 0.25)), url(../../assets/images/img-01.jpg);
+  background-position: unset;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: center;
+  text-align: center;
+  z-index: 1;
+}
+
+#ctx{
+  background-color: #ce1b28;
+  color: rgba(255, 255, 255, 0.75);
+  background-attachment: fixed;
+  background-image: linear-gradient(rgba(65, 131, 215, 1), rgba(206, 27, 40, 0.25)), url(../../assets/images/bg.jpg);
   background-position: unset;
   background-repeat: no-repeat;
   background-size: cover;
