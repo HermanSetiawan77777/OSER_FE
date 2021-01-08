@@ -2,10 +2,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th style="width: 15%">Nama Owner</th>
+      <th style="width: 15%">Nama Pemilik</th>
       <th style="width: 15%">Status</th>
       <th style="width: 15%">Kategori</th>
-      <th style="width: 15%">Nama Project</th>
+      <th style="width: 15%">Nama Proyek</th>
       <th style="width: 15%">Harga</th>
       <th style="width: 15%">Durasi Pengerjaan</th>
     </tr>
@@ -32,19 +32,19 @@
 <div class="d-flex justify-content-center">
   <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
     <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
-      <a (click)="setPageRequestPrice(1)" class="page-link">First</a>
+      <a (click)="setPageRequestPrice(1)" class="page-link">Pertama</a>
     </li>
     <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
-      <a (click)="setPageRequestPrice(pager.currentPage - 1)" class="page-link">Previous</a>
+      <a (click)="setPageRequestPrice(pager.currentPage - 1)" class="page-link">Sebelumnya</a>
     </li>
     <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item number-item">
       <a (click)="setPageRequestPrice(page)" class="page-link">{{page}}</a>
     </li>
     <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
-      <a (click)="setPageRequestPrice(pager.currentPage + 1)" class="page-link">Next</a>
+      <a (click)="setPageRequestPrice(pager.currentPage + 1)" class="page-link">Selanjutnya</a>
     </li>
     <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
-      <a (click)="setPageRequestPrice(pager.totalPages)" class="page-link">Last</a>
+      <a (click)="setPageRequestPrice(pager.totalPages)" class="page-link">Terakhir</a>
     </li>
   </ul>
 </div>

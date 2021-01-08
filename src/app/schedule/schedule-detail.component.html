@@ -5,7 +5,7 @@
 </div>
 <div *ngFor="let schedule of schedules" style="margin-top: 60px">
   <div>
-    <h4>Nama Owner</h4>
+    <h4>Nama Pemilik</h4>
     <p style="font-size: 20px">{{schedule.OwnerName}}</p>
   </div>
   <div>
@@ -28,16 +28,16 @@
   <img [src]="imageSrc" *ngIf="imageSrc" style="height: 500px; width:500px">
 
   <div class="d-flex justify-content-end">
-    <button *ngIf="acceptBtn == true" (click)="updateScheduleStatus('1')" class="btn btn-md btn-primary mr-1">Accept
-      Schedule</button>
+    <button *ngIf="acceptBtn == true" (click)="updateScheduleStatus('1')" class="btn btn-md btn-primary mr-1">Terima
+      Jadwal</button>
 
     <button *ngIf="cancelBtn == true" (click)="updateScheduleStatus('cancel')"
-      class="btn btn-md btn-danger mr-1">Cancel</button>
+      class="btn btn-md btn-danger mr-1">Batal</button>
 
     <button *ngIf="finnishBtn == true" (click)="updateScheduleStatus('2')" class="btn btn-md btn-primary mr-1">
-      Finnish
+      Selesai
     </button>
 
-    <a routerLink="/schedule" class="btn btn-md btn-danger mr-1">Back</a>
+    <a routerLink="/schedule" class="btn btn-md btn-danger mr-1">Kembali</a>
   </div>
 </div>

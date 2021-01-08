@@ -1,5 +1,5 @@
-﻿<h1 *ngIf="isAddMode">Add Project</h1>
-<h1 *ngIf="!isAddMode">Edit Project</h1>
+﻿<h1 *ngIf="isAddMode">Tambah Proyek</h1>
+<h1 *ngIf="!isAddMode">Edit Proyek</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-row">
     <div class="form-group col">
@@ -73,8 +73,8 @@
   <div class="form-group">
     <button [disabled]="loading" class="btn btn-primary">
       <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-      Save
+      Simpan
     </button>
-    <a routerLink="/project" class="btn btn-link">Cancel</a>
+    <a routerLink="/project" class="btn btn-link">Batal</a>
   </div>
 </form>

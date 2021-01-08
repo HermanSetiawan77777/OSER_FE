@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
       username: ['', Validators.required],
       phone: ['', Validators.required],
       remarks: ['', Validators.required],
-      linkedin: ['', Validators.required],
+      linkedIn: ['', Validators.required],
     });
 
     const userProfileLocal = JSON.parse(localStorage.getItem('userProfile'));
@@ -47,36 +47,27 @@ export class ProfileComponent implements OnInit {
         this.UserProfileModel.id = res.message[0].id;
         this.UserProfileModel.username = res.message[0].username;
         this.UserProfileModel.gender = res.message[0].gender;
-        if (res.message[0].tanggallahir != undefined) {
-          this.UserProfileModel.birthDate = new Date(
-            res.message[0].tanggallahir
-          )
-            .toISOString()
-            .slice(0, 10);
-        }
+        this.UserProfileModel.birthDate = res.message[0].birthDate;
         this.UserProfileModel.email = res.message[0].email;
         this.UserProfileModel.phone = res.message[0].phone;
         this.UserProfileModel.projectCompleted =
           res.message[0].ProjectCompleted;
         this.UserProfileModel.servicesCompleted =
           res.message[0].ServicesCompleted;
-        if (res.message[0].createdDate != undefined) {
-          this.UserProfileModel.createdDate = new Date(
-            res.message[0].createdDate
-          )
-            .toISOString()
-            .slice(0, 10);
-        }
-        this.UserProfileModel.remarks = res.message[0].Remarks;
-        this.UserProfileModel.linkedIn = res.message[0].linkedin;
+        this.UserProfileModel.createdDate = new Date(res.message[0].createdDate)
+          .toISOString()
+          .slice(0, 10);
+        this.UserProfileModel.remarks = res.message[0].remarks;
 
         this.form.patchValue({
           username: this.UserProfileModel.username,
           phone: this.UserProfileModel.phone,
           remarks: this.UserProfileModel.remarks,
-          linkedin: this.UserProfileModel.linkedIn,
+          linkedIn: this.UserProfileModel.linkedIn,
         });
+        console.log(this.form.value);
         console.log(this.UserProfileModel);
+        console.log(this.UserProfileModel.username);
       });
   }
 
@@ -85,6 +76,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('a');
     this.submitted = true;
 
     // reset alerts on submit
@@ -94,16 +86,18 @@ export class ProfileComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
+    console.log('b');
 
     this.loading = true;
 
     this.accountService
-      .updateProfile(this.userId, this.form.value)
+      .updateProfile(this.userId, this.UserProfileUpdateModel)
       .pipe(first())
       .subscribe({
         next: () => {
+          console.log('object');
           Swal.fire('Memperbaharui berhasil !', '', 'success');
-          this.ngOnInit();
+          console.log('object');
           this.loading = false;
           this.submitted = false;
         },

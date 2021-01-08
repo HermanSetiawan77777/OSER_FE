@@ -3,13 +3,7 @@
 </h1>
 <div *ngFor="let project of projects" style="margin-top: 60px">
   <div>
-    <h4>
-      Project ID
-    </h4>
-    <p style="font-size: 20px">{{ project._id}}</p>
-  </div>
-  <div>
-    <h4>Nama Owner</h4>
+    <h4>Nama Pemilik</h4>
     <p style="font-size: 20px">{{ project.OwnerName }}</p>
   </div>
   <div>
@@ -34,8 +28,8 @@
   <div class="d-flex justify-content-end">
     <button *ngIf="userId !== project.OwnerID" (click)="negoProject()" class="btn btn-md btn-info mr-1">Nego
     </button>
-    <button *ngIf="userId !== project.OwnerID" (click)="takeProject()" class="btn btn-md btn-primary mr-1">Ambil Project
+    <button *ngIf="userId !== project.OwnerID" (click)="takeProject()" class="btn btn-md btn-primary mr-1">Ambil Proyek
     </button>
-    <a routerLink="/project" class="btn btn-md btn-danger mr-1">Cancel</a>
+    <a routerLink="/project" class="btn btn-md btn-danger mr-1">Batal</a>
   </div>
 </div>

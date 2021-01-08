@@ -74,7 +74,7 @@ export class AccountService {
     header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
     return this.http.post(
       `${environment.apiUrl}/user/updateuser/${id}`,
-      userModel,
+      { userModel },
       { headers: header }
     );
   }
