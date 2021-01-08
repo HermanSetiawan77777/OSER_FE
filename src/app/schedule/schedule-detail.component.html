@@ -28,8 +28,17 @@
   <img [src]="imageSrc" *ngIf="imageSrc" style="height: 500px; width:500px">
 
   <div class="d-flex justify-content-end">
+<<<<<<< Updated upstream
     <button *ngIf="acceptBtn == true" (click)="updateScheduleStatus('1')" class="btn btn-md btn-primary mr-1">Terima
       Jadwal</button>
+=======
+    <button *ngIf="reviewBtn == true" (click)="giveReview()" class="btn btn-md btn-info mr-1">
+      Beri Ulasan
+    </button>
+
+    <button *ngIf="acceptBtn == true" (click)="updateScheduleStatus('1')" class="btn btn-md btn-primary mr-1">Accept
+      Schedule</button>
+>>>>>>> Stashed changes
 
     <button *ngIf="cancelBtn == true" (click)="updateScheduleStatus('cancel')"
       class="btn btn-md btn-danger mr-1">Batal</button>

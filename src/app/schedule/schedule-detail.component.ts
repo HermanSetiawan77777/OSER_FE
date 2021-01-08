@@ -17,6 +17,7 @@ export class ScheduleDetailComponent implements OnInit {
   acceptBtn = false;
   finnishBtn = false;
   cancelBtn = false;
+  reviewBtn = false;
 
   constructor(
     private scheduleServices: ScheduleServices,
@@ -58,6 +59,8 @@ export class ScheduleDetailComponent implements OnInit {
         this.cancelBtn = true;
       } else if (this.schedules[0].StatusNo == 1) {
         this.finnishBtn = true;
+      } else if (this.schedules[0].StatusNo == 2) {
+        this.reviewBtn = true;
       }
     }
   }
@@ -85,5 +88,13 @@ export class ScheduleDetailComponent implements OnInit {
           this.loading = false;
         },
       });
+  }
+
+  giveReview() {
+    sessionStorage.setItem('onwerId', this.schedules[0].OwnerID);
+    sessionStorage.setItem('category', this.schedules[0].Category);
+    sessionStorage.setItem('assigmentId', this.schedules[0]._id);
+
+    this.router.navigate(['/review'], { relativeTo: this.route });
   }
 }

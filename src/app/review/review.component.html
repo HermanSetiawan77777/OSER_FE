@@ -1,0 +1,58 @@
+<div class="card">
+    <h4 class="card-header">Review</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <label for="review">Ulasan</label>
+                    </div>
+                    <div class="col-md-9">
+                        <textarea type="text" formControlName="review" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.review.errors?.required }"></textarea>
+                        <div *ngIf="submitted && f.review.errors?.required" class="invalid-feedback">
+                            <div *ngIf="f.review.errors?.required">Ulasan Harus Diisi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        Peringkat
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input formControlName="rate" type="radio" id="ratings1" value="1" checked>
+                                <label class="ml-1">Sangat Buruk</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input formControlName="rate" type="radio" id="ratings2" value="2">
+                                <label class="ml-1">Buruk</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input formControlName="rate" type="radio" id="ratings3" value="3">
+                                <label class="ml-1">Normal</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input formControlName="rate" type="radio" id="ratings4" value="4">
+                                <label class="ml-1">Baik</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input formControlName="rate" type="radio" id="ratings5" value="5">
+                                <label class="ml-1">Sangat Baik</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary btn-block">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Kirim
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -7,34 +7,47 @@ import { Dashboard } from '@app/dashboard';
 import { ProfileModule } from '@app/profile/profile.module';
 import { Faq } from '@app/dashboard/faq';
 
-const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
-const projectModule = () => import('./projects/users.module').then(x => x.UsersModule);
-const servicesModule = () => import('./services/services.module').then(x => x.ServicesModule);
-const scheduleModule = () => import('./schedule/schedule.module').then(x => x.ScheduleModule);
-const requestpriceModule = () => import('./request-price/request-price.module').then(x => x.RequestPriceModule);
-const profileModule = () => import('./profile/profile.module').then(x => ProfileModule);
-
-
+const accountModule = () =>
+  import('./account/account.module').then((x) => x.AccountModule);
+const projectModule = () =>
+  import('./projects/users.module').then((x) => x.UsersModule);
+const servicesModule = () =>
+  import('./services/services.module').then((x) => x.ServicesModule);
+const scheduleModule = () =>
+  import('./schedule/schedule.module').then((x) => x.ScheduleModule);
+const requestpriceModule = () =>
+  import('./request-price/request-price.module').then(
+    (x) => x.RequestPriceModule
+  );
+const profileModule = () =>
+  import('./profile/profile.module').then((x) => x.ProfileModule);
+const reviewModule = () =>
+  import('./review/review.module').then((x) => x.ReviewModule);
 
 const routes: Routes = [
-    { path: '', component: Dashboard},
-    { path: 'faq', component: Faq},
-    { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
-    { path: 'project', loadChildren: projectModule, canActivate: [AuthGuard] },
-    { path: 'service', loadChildren: servicesModule, canActivate: [AuthGuard] },
-    { path: 'schedule', loadChildren: scheduleModule, canActivate: [AuthGuard] },
-    { path: 'requestprice', loadChildren: requestpriceModule, canActivate: [AuthGuard]},
-    { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard]},
-    { path: 'account', loadChildren: accountModule },
+  { path: '', component: Dashboard },
+  { path: 'faq', component: Faq },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'project', loadChildren: projectModule, canActivate: [AuthGuard] },
+  { path: 'service', loadChildren: servicesModule, canActivate: [AuthGuard] },
+  { path: 'schedule', loadChildren: scheduleModule, canActivate: [AuthGuard] },
+  { path: 'review', loadChildren: reviewModule, canActivate: [AuthGuard] },
+  {
+    path: 'requestprice',
+    loadChildren: requestpriceModule,
+    canActivate: [AuthGuard],
+  },
+  { path: 'profile', loadChildren: profileModule, canActivate: [AuthGuard] },
+  { path: 'account', loadChildren: accountModule },
 
-    // otherwise redirect to home
-/*
+  // otherwise redirect to home
+  /*
     { path: '**', redirectTo: '' }
 */
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

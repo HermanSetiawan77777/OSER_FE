@@ -14,6 +14,7 @@ import { Dashboard } from '@app/dashboard';
 import { HomeModule } from '@app/home/home.module';
 import { RequestPriceModule } from '@app/request-price/request-price.module';
 import { ProfileModule } from '@app/profile/profile.module';
+import { ReviewModule } from '@app/review/review.module';
 import { ModalModule } from 'ng2-modal-module';
 
 @NgModule({
@@ -29,19 +30,15 @@ import { ModalModule } from 'ng2-modal-module';
     RequestPriceModule,
     ProfileModule,
     ModalModule,
+    ReviewModule,
   ],
-    declarations: [
-        AppComponent,
-        AlertComponent,
-        HomeComponent,
-        Dashboard,
-    ],
-    providers: [
-        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  declarations: [AppComponent, AlertComponent, HomeComponent, Dashboard],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
-        // provider used to create fake backend
-    ],
-    bootstrap: [AppComponent]
+    // provider used to create fake backend
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { };
+export class AppModule {}
