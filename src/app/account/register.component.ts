@@ -17,17 +17,22 @@ export class RegisterComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private accountService: AccountService,
-    private alertService: AlertService
+      private alertService: AlertService
   ) { }
 
-  ngOnInit() {
-    this.form = this.formBuilder.group({
-      username: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required]],
-      remarks: ['', Validators.required],
+    ngOnInit() {
+      this.form = this.formBuilder.group({
+        username: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        phone: ['', Validators.required],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['', [Validators.required]],
+        remarks: ['', Validators.required],
+        linkedin: ['', Validators.required],
+        tanggallahir: ['', Validators.required],
+        gender: ['', Validators.required],
+        workcat: ['', Validators.required],
+        ktp: ['', [Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
     }, {
       validator: MustMatch('password', 'confirmPassword')
     });

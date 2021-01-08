@@ -3,10 +3,34 @@
   <div class="card-body">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="username">Nama Lengkap</label>
+        <label for="firstName">Nama Depan</label>
         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-          <div *ngIf="f.username.errors.required">Nama Lengkap Harus Diisi</div>
+          <div *ngIf="f.username.errors.required">Nama Depan Harus Diisi</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Nama Belakang</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Nama Belakang Harus Diisi</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="gender">Jenis Kelamin</label>
+        <select formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors?.required }">
+          <option value=""></option>
+          <option value="male">Laki-laki</option>
+          <option value="female">Perempuan</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="ktp">KTP</label>
+        <input type="text" formControlName="ktp" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ktp.errors }" />
+        <div *ngIf="submitted && f.ktp.errors" class="invalid-feedback">
+          <div *ngIf="f.ktp.errors.required">KTP Harus Diisi</div>
+          <div *ngIf="f.ktp.errors.minlength">KTP Harus 16 Digit Angka</div>
+          <div *ngIf="f.ktp.errors.maxlength">KTP Harus 16 Digit Angka</div>
         </div>
       </div>
       <div class="form-group">
@@ -14,6 +38,7 @@
         <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.required">Email Harus Diisi</div>
+          <div *ngIf="f.email.errors.email">Masukan Email yang Valid</div>
         </div>
       </div>
       <div class="form-group">
@@ -21,6 +46,31 @@
         <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
         <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
           <div *ngIf="f.phone.errors.required">Nomor Telepon Harus Diisi</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="linkedin">Link Linkedin</label>
+        <input type="text" formControlName="linkedin" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.linkedin.errors }" />
+        <div *ngIf="submitted && f.linkedin.errors" class="invalid-feedback">
+          <div *ngIf="f.linkedin.errors.required">Linkedin Harus Diisi</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="workcat">Preferensi Pekerjaan</label>
+        <select formControlName="workcat" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.workcat.errors?.required }">
+          <option value=""></option>
+          <option value="Audio, Video, Photography">Audio, Video, Photography</option>
+          <option value="Games Development">Games Development</option>
+          <option value="Website Development">Website Development</option>
+          <option value="3D modeling & Animation">3D modeling & Animation</option>
+          <option value="others">others</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tanggallahir">Tanggal Lahir</label>
+        <input type="date" formControlName="tanggallahir" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.tanggallahir.errors }" />
+        <div *ngIf="submitted && f.tanggallahir.errors" class="invalid-feedback">
+          <div *ngIf="f.tanggallahir.errors.required">Tanggal Lahir Harus Diisi</div>
         </div>
       </div>
       <div class="form-group">
