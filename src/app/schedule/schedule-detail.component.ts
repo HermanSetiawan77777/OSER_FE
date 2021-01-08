@@ -71,7 +71,7 @@ export class ScheduleDetailComponent implements OnInit {
       }
     }
     this.scheduleServices
-      .UpdateScheduleStatus(this.schedules[0]._id, status)
+      .updateScheduleStatus(this.schedules[0]._id, status)
       .pipe(first())
       .subscribe({
         next: () => {

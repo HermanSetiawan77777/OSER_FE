@@ -32,8 +32,8 @@
   <img [src]="imageSrc" *ngIf="imageSrc" style="height: 700px; width:500px">
 
   <div class="d-flex justify-content-end">
-    <a *ngIf="userId !== project.OwnerID" routerLink="/project/{{project._id}}/nego"
-      class="btn btn-md btn-info mr-1">Nego</a>
+    <button *ngIf="userId !== project.OwnerID" (click)="negoProject()" class="btn btn-md btn-info mr-1">Nego
+    </button>
     <button *ngIf="userId !== project.OwnerID" (click)="takeProject()" class="btn btn-md btn-primary mr-1">Ambil Project
     </button>
     <a routerLink="/project" class="btn btn-md btn-danger mr-1">Cancel</a>

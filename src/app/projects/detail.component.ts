@@ -34,7 +34,7 @@ export class DetailComponent {
         console.log((this.projects = projects.message));
         if (this.projects[0].Image != undefined) {
           const imageId = this.projects[0].Image.split('/')[1];
-          this.imageSrc = `${environment.apiUrl}/files/ViewLicense/${imageId}`;
+          this.imageSrc = `https://3.208.28.174:3003/files/ViewLicense/${imageId}`;
         }
       });
   }
@@ -47,6 +47,21 @@ export class DetailComponent {
         next: () => {
           // get return url from query parameters or default to home page
           this.router.navigate(['/schedule'], { relativeTo: this.route });
+        },
+        error: (error) => {
+          this.alertService.error(error);
+        },
+      });
+  }
+
+  negoProject() {
+    this.projectServices
+      .requestPrice(this.projects[0]._id, 'project')
+      .pipe(first())
+      .subscribe({
+        next: () => {
+          // get return url from query parameters or default to home page
+          this.router.navigate([`/requestprice`], { relativeTo: this.route });
         },
         error: (error) => {
           this.alertService.error(error);

@@ -8,6 +8,7 @@ import { environment } from '@environments/environment';
 import { User } from '@app/_models';
 import { UserProfile } from '../_models/userProfile';
 import { Services } from '@app/_models/services';
+import { UserProfileUpdateModel } from '../_models/UserProfileUpdateModel';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -65,8 +66,16 @@ export class AccountService {
   }
 
   viewProfile(id: string) {
-    return this.http.get<any>(
-      `${environment.apiUrl}/user/ViewProfiles/${id}`
+    return this.http.get<any>(`${environment.apiUrl}/user/ViewProfiles/${id}`);
+  }
+
+  updateProfile(id: string, userModel: UserProfileUpdateModel) {
+    let header = new HttpHeaders();
+    header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
+    return this.http.post(
+      `${environment.apiUrl}/user/updateuser/${id}`,
+      { userModel },
+      { headers: header }
     );
   }
 

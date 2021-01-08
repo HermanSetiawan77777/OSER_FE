@@ -1,13 +1,20 @@
-import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { RequestPriceServices } from '@app/_services';
 import { first } from 'rxjs/operators';
 // @ts-ignore
 import paginate from 'jw-paginate';
 
 @Component({
-  templateUrl: 'request-price.component.html'
+  templateUrl: 'request-price.component.html',
 })
-export class RequestPriceComponent implements OnInit, OnChanges{
+export class RequestPriceComponent implements OnInit, OnChanges {
   pageOfItems: Array<any>;
   requestPrice = [];
   pager: any = {};
@@ -17,13 +24,14 @@ export class RequestPriceComponent implements OnInit, OnChanges{
   itemsPerPage = 5;
   maxSize = 5;
 
-  constructor(private requestPriceServices: RequestPriceServices){}
+  constructor(private requestPriceServices: RequestPriceServices) {}
 
   ngOnInit() {
     const userId = localStorage.getItem('userid').slice(1, -1);
-    this.requestPriceServices.getRequestPrice(userId)
+    this.requestPriceServices
+      .getRequestPrice(userId)
       .pipe(first())
-      .subscribe(requestPrice => {
+      .subscribe((requestPrice) => {
         // @ts-ignore
         this.requestPrice = requestPrice.message;
         if (this.requestPrice !== [] && this.requestPrice.length !== 0) {
@@ -36,10 +44,18 @@ export class RequestPriceComponent implements OnInit, OnChanges{
   setPageRequestPrice(page: number) {
     console.log('a');
     // get new pager object for specified page
-    this.pager = paginate(this.requestPrice.length, page, this.itemsPerPage, this.maxSize);
+    this.pager = paginate(
+      this.requestPrice.length,
+      page,
+      this.itemsPerPage,
+      this.maxSize
+    );
 
     // get new page of items from items array
-    this.pageOfItems = this.requestPrice.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    this.pageOfItems = this.requestPrice.slice(
+      this.pager.startIndex,
+      this.pager.endIndex + 1
+    );
 
     // call change page function in parent component
     this.changePage.emit(this.pageOfItems);

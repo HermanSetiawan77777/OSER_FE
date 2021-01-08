@@ -47,7 +47,7 @@ export class ScheduleServices {
     });
   }
 
-  UpdateScheduleStatus(scheduleId: string, status) {
+  updateScheduleStatus(scheduleId: string, status) {
     let header = new HttpHeaders();
     header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
     console.log(localStorage.getItem('token').slice(1, -1));

@@ -1,0 +1,175 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <h1 class="col">
+                            HALAMAN PENAWARAN HARGA
+                        </h1>
+                        <div class="col col-lg-2">
+                            <button type="button" class="btn btn-danger btn-block"
+                                (click)="kesepakatanNego('batal')">Batal Nego</button>
+                        </div>
+                        <div *ngif="setujuBtn == true" class="col col-lg-2">
+                            <button type="button" class="btn btn-success btn-block"
+                                (click)="finnalizeNegoOwner()">Setuju</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-info">
+                            anda dapat menghubungi pemilik melalui email yang tertera
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">Nama Pemilik</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            {{requestPrice.OwnerName}}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">Email Pemilik</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            {{requestPrice.OwnerEmail}}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">Nama Penawar</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            {{requestPrice.UserName}}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">Email Penawar</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            {{requestPrice.UserEmail}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">Nama Tugas</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            {{requestPrice.AssignmentName}}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">Category</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary">
+                                            {{requestPrice.Category}}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">Durasi</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary">
+                                            {{requestPrice.Duration}} Hari
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">Harga Awal</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            Rp.{{requestPrice.StartPrice}}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">Harga</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            Rp.{{requestPrice.Price}}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">Status</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            {{requestPrice.status}}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-sm btn-success btn-block"
+                                                (click)="kesepakatanNego('setuju')">Sepakat</button>
+                                        </div>
+                                        <div class="col">
+                                            <button type="button" class="btn btn-sm btn-danger btn-block"
+                                                (click)="resetPrice()">Tidak
+                                                Sepakat</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">{{requestPrice.OwnerName}}</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            {{requestPrice.OwnerDeal}}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="mb-0">{{requestPrice.UserName}}</h6>
+                                        </div>
+                                        <div class="col-sm-7 text-secondary">
+                                            {{requestPrice.UserDeal}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" [(ngModel)]="newPrice"
+                placeholder="masukan harga yang ingin di tawar" />
+        </div>
+        <div class="col-lg-3">
+            <button type="button" class="btn btn-info btn-block" (click)="nego()">Nego</button>
+        </div>
+    </div>
+</div>

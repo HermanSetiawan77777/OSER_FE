@@ -1,32 +1,32 @@
 <h1>Nego Harga</h1>
-<table class="table table-striped" >
+<table class="table table-striped">
   <thead>
-  <tr>
-    <th style="width: 15%">Nama Owner</th>
-    <th style="width: 15%">Status</th>
-    <th style="width: 15%">Kategori</th>
-    <th style="width: 15%">Nama Project</th>
-    <th style="width: 15%">Harga</th>
-    <th style="width: 15%">Durasi Pengerjaan</th>
-  </tr>
+    <tr>
+      <th style="width: 15%">Nama Owner</th>
+      <th style="width: 15%">Status</th>
+      <th style="width: 15%">Kategori</th>
+      <th style="width: 15%">Nama Project</th>
+      <th style="width: 15%">Harga</th>
+      <th style="width: 15%">Durasi Pengerjaan</th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let requestPrice of pageOfItems">
-    <td>{{requestPrice.OwnerName}}</td>
-    <td>{{requestPrice.status}}</td>
-    <td>{{requestPrice.Category}}</td>
-    <td>{{requestPrice.AssignmentName}}</td>
-    <td>Rp.{{requestPrice.Price}},-</td>
-    <td>{{requestPrice.Duration}} Hari</td>
-    <td style="white-space: nowrap">
-      <a routerLink="../project/detail/{{requestPrice._id}}" class="btn btn-sm btn-info mr-1">Detail</a>
-    </td>
-  </tr>
-  <tr *ngIf="!requestPrice">
-    <td colspan="4" class="text-center">
-      <span class="spinner-border spinner-border-lg align-center"></span>
-    </td>
-  </tr>
+    <tr *ngFor="let requestPrice of pageOfItems">
+      <td>{{requestPrice.OwnerName}}</td>
+      <td>{{requestPrice.status}}</td>
+      <td>{{requestPrice.Category}}</td>
+      <td>{{requestPrice.AssignmentName}}</td>
+      <td>Rp.{{requestPrice.Price}},-</td>
+      <td>{{requestPrice.Duration}} Hari</td>
+      <td style="white-space: nowrap">
+        <a routerLink="../detailRequest/{{requestPrice._id}}" class="btn btn-sm btn-info mr-1">Detail</a>
+      </td>
+    </tr>
+    <tr *ngIf="!requestPrice">
+      <td colspan="4" class="text-center">
+        <span class="spinner-border spinner-border-lg align-center"></span>
+      </td>
+    </tr>
   </tbody>
 </table>
 <div class="d-flex justify-content-center">

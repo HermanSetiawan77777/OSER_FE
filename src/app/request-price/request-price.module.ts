@@ -7,7 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import { RequestPriceComponent } from './request-price.component';
 import { LayoutComponent } from './layout.component';
-
+import { DetailRequestComponent } from './detail-request.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -17,13 +18,13 @@ import { LayoutComponent } from './layout.component';
     TooltipModule,
     SharedModule,
     JwPaginationModule,
+    FormsModule,
   ],
-  exports: [
-    RequestPriceComponent,
-  ],
+  exports: [RequestPriceComponent, DetailRequestComponent],
   declarations: [
     LayoutComponent,
     RequestPriceComponent,
-  ]
+    DetailRequestComponent,
+  ],
 })
-export class RequestPriceModule { }
+export class RequestPriceModule {}
