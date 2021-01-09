@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="row mb-3 align-items-center">
+        <h1 class="col">
+            User Profil
+        </h1>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Nama Pengguna</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{UserProfileModel.username}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row align-items-center">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Jenis Kelamin</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{UserProfileModel.gender}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row align-items-center">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Tanggal Lahir</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{UserProfileModel.birthDate}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row align-items-center">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{UserProfileModel.email}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row align-items-center">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Telepon</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{UserProfileModel.phone}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Proyek Selesai</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{UserProfileModel.projectCompleted}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Jasa Selesai</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{UserProfileModel.servicesCompleted}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Waktu Bergabung</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{UserProfileModel.createdDate}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Catatan</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{UserProfileModel.remarks}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">LinkedIn <img [src]="imgSrc" class="ml-2" style="height: 30px; width:50px">
+                            </h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{UserProfileModel.linkedIn}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <a [disabled]="loading" class="btn btn-primary" routelink="/">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                            Lihat Ulasan User
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

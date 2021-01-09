@@ -26,9 +26,9 @@ export class ReviewServices {
     );
   }
 
-  viewReviewByOwner(ownerName: string) {
+  viewReviewByOwner(userId: string) {
     return this.http.get<any>(
-      `${environment.apiUrl}/ViewReviewyByOwner/${ownerName}`
+      `${environment.apiUrl}/review/ViewReviewyByOwner/${userId}`
     );
   }
 
@@ -39,6 +39,12 @@ export class ReviewServices {
       `${environment.apiUrl}/schedule/UpdateScheduleReview/${id}`,
       { reviewData },
       { headers: header }
+    );
+  }
+
+  viewNotif(userId: string) {
+    return this.http.get<any>(
+      `${environment.apiUrl}/notif/Viewnotif/${userId}`
     );
   }
 }

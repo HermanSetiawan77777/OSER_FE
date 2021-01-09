@@ -1,40 +1,22 @@
-<h1>Notif</h1>
-<!-- <a routerLink="project/add" class="btn btn-sm btn-success mb-2">Tambah Project</a> -->
-<table class="table table-striped">
+<div class="container">
+  <h1>Notif</h1>
+  <table class="table table-striped">
     <thead>
-        <tr>
-            <th style="width: 15%">Notif</th>
-            <th style="width: 15%">Tanggal dibuat</th>
-        </tr>
+      <tr>
+        <th style="width: 15%">Notif</th>
+        <th style="width: 15%">Tanggal dibuat</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let project of pageOfItems">
-            <td>aaa</td>
-            <td>aaa</td>
-        </tr>
-        <tr *ngIf="!projects">
-            <td colspan="4" class="text-center">
-                <span class="spinner-border spinner-border-lg align-center"></span>
-            </td>
-        </tr>
+      <tr *ngFor="let notif of notifs">
+        <td>{{notif.Notif}}</td>
+        <td>{{notif.CreatedDate | date}}</td>
+      </tr>
+      <tr *ngIf="!notifs">
+        <td colspan="4" class="text-center">
+          <span class="spinner-border spinner-border-lg align-center"></span>
+        </td>
+      </tr>
     </tbody>
-</table>
-<div class="d-flex justify-content-center">
-  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-    <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
-      <a (click)="setPageProject(1)" class="page-link">Pertama</a>
-    </li>
-    <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
-      <a (click)="setPageProject(pager.currentPage - 1)" class="page-link">Sebelumnya</a>
-    </li>
-    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item number-item">
-      <a (click)="setPageProject(page)" class="page-link">{{page}}</a>
-    </li>
-    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
-      <a (click)="setPageProject(pager.currentPage + 1)" class="page-link">Selanjutnya</a>
-    </li>
-    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
-      <a (click)="setPageProject(pager.totalPages)" class="page-link">Terakhir</a>
-    </li>
-  </ul>
+  </table>
 </div>

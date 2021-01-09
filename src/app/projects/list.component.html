@@ -1,40 +1,42 @@
 ﻿<h1>Proyek</h1>
 <a routerLink="project/add" class="btn btn-sm btn-success mb-2">Tambah Project</a>
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th style="width: 15%">Nama Pemilik</th>
-            <th style="width: 15%">Kategori</th>
-            <th style="width: 15%">Nama Proyek</th>
-            <th style="width: 15%">Harga</th>
-            <th tooltip="Berapa Lama Project Akan Muncul di List" autoPlacement="true" style="width: 15%">Tenggat Waktu</th>
-            <th style="width: 15%">Durasi Pengerjaan</th>
-            <th style="width: 30%">Deskripsi Pekerjaan</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let project of pageOfItems">
-            <td>{{project.OwnerName}}</td>
-            <td>{{project.Category}}</td>
-            <td>{{project.ProjectName}}</td>
-            <td>Rp.{{project.Price}},-</td>
-            <td>{{project.Deadline | date}}</td>
-            <td>{{project.Duration}} Hari</td>
-            <td>{{project.Remarks | truncate: 30}}</td>
-            <td style="white-space: nowrap">
-                <a routerLink="project/detail/{{project._id}}" class="btn btn-sm btn-info mr-1">Detail</a>
-                <a *ngIf="userId === project.OwnerID" routerLink="project/edit/{{project._id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
-                <button *ngIf="userId === project.OwnerID" (click)="deleteProjects(project._id)" class="btn btn-sm btn-danger btn-delete-user">
-                  Delete
-                </button>
-            </td>
-        </tr>
-        <tr *ngIf="!projects">
-            <td colspan="4" class="text-center">
-                <span class="spinner-border spinner-border-lg align-center"></span>
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th style="width: 15%">Nama Pemilik</th>
+      <th style="width: 15%">Kategori</th>
+      <th style="width: 15%">Nama Proyek</th>
+      <th style="width: 15%">Harga</th>
+      <th tooltip="Berapa Lama Project Akan Muncul di List" autoPlacement="true" style="width: 15%">Tenggat Waktu</th>
+      <th style="width: 15%">Durasi Pengerjaan</th>
+      <th style="width: 30%">Deskripsi Pekerjaan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of pageOfItems">
+      <td>{{project.OwnerName}}</td>
+      <td>{{project.Category}}</td>
+      <td>{{project.ProjectName}}</td>
+      <td>Rp.{{project.Price}},-</td>
+      <td>{{project.Deadline}}</td>
+      <td>{{project.Duration}} Hari</td>
+      <td>{{project.Remarks | truncate: 30}}</td>
+      <td style="white-space: nowrap">
+        <a routerLink="project/detail/{{project._id}}" class="btn btn-sm btn-info mr-1">Detail</a>
+        <a *ngIf="userId === project.OwnerID" routerLink="project/edit/{{project._id}}"
+          class="btn btn-sm btn-primary mr-1">Edit</a>
+        <button *ngIf="userId === project.OwnerID" (click)="deleteProjects(project._id)"
+          class="btn btn-sm btn-danger btn-delete-user">
+          Delete
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf="!projects">
+      <td colspan="4" class="text-center">
+        <span class="spinner-border spinner-border-lg align-center"></span>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <div class="d-flex justify-content-center">
   <ul *ngIf="pager.pages && pager.pages.length" class="pagination">

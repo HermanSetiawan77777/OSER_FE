@@ -1,13 +1,14 @@
 ﻿<!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Beranda</a>
-    <a class="nav-item nav-link" routerLink="/project" routerLinkActive="active">Proyek</a>
-    <a class="nav-item nav-link" routerLink="/service" routerLinkActive="active">Jasa</a>
-    <a class="nav-item nav-link" routerLink="/schedule" routerLinkActive="active">Jadwal</a>
-    <a class="nav-item nav-link" routerLink="/requestprice" routerLinkActive="active">Nego</a>
-    <a class="nav-item nav-link" routerLink="/profile" routerLinkActive="active">Profil</a>
-    <a class="nav-item nav-link d-flex align-items-end" (click)="logout()">Keluar</a>
+  <div class="navbar-nav w-100 d-flex">
+    <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">Beranda</a>
+    <a class="nav-item nav-link p-2" routerLink="/project" routerLinkActive="active">Proyek</a>
+    <a class="nav-item nav-link p-2" routerLink="/service" routerLinkActive="active">Jasa</a>
+    <a class="nav-item nav-link p-2" routerLink="/schedule" routerLinkActive="active">Jadwal</a>
+    <a class="nav-item nav-link p-2" routerLink="/requestprice" routerLinkActive="active">Nego</a>
+    <a class="nav-item nav-link p-2" routerLink="/profile" routerLinkActive="active">Profil</a>
+    <a class="nav-item nav-link ml-auto p-2" (click)="logout()">Keluar</a>
   </div>
 </nav>
 
