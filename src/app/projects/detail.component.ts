@@ -34,7 +34,7 @@ export class DetailComponent {
         console.log((this.projects = projects.message));
         if (this.projects[0].Image != undefined) {
           const imageId = this.projects[0].Image.split('/')[1];
-          this.imageSrc = `https://3.208.28.174:3003/files/ViewLicense/${imageId}`;
+          this.imageSrc = `${environment.apiUrl}/files/ViewLicense/${imageId}`;
         }
       });
   }

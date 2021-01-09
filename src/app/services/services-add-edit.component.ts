@@ -40,7 +40,6 @@ export class ServicesAddEditComponent implements OnInit {
       category: ['', Validators.required],
       duration: ['', Validators.required],
       price: ['', Validators.required],
-      remarks: ['', Validators.required],
       image: [''],
     });
 

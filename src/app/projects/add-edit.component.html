@@ -26,10 +26,10 @@
       </div>
     </div>
     <div class="form-group col">
-      <label for="price">Harga</label>
+      <label for="price">Harga</label><br>
       <input type="price" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors?.required }" />
       <div *ngIf="submitted && f.price.errors?.required" class="invalid-feedback">
-        <div *ngIf="f.price.errors?.required">Username is required</div>
+        <div *ngIf="f.price.errors?.required">Harga is required</div>
       </div>
     </div>
   </div>
@@ -65,10 +65,7 @@
 
   <div style="margin-bottom: 15px">
     <label for="remarks">Deskripsi Pekerjaan</label>
-    <textarea type="text" formControlName="remarks" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.remarks.errors?.required }" ></textarea>
-    <div *ngIf="submitted && f.remarks.errors?.required" class="invalid-feedback">
-      <div *ngIf="f.remarks.errors?.required">Email Harus Diisi</div>
-    </div>
+    <textarea type="text" formControlName="remarks" class="form-control" ></textarea>
   </div>
   <div class="form-group">
     <button [disabled]="loading" class="btn btn-primary">

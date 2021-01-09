@@ -33,7 +33,6 @@ export class AddEditComponent implements OnInit {
       price: ['', Validators.required],
       deadline: ['', Validators.required],
       duration: ['', Validators.required],
-      remarks: ['', Validators.required],
       image: [''],
     });
 
