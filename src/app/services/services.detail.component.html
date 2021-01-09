@@ -34,7 +34,7 @@
   <img [src]="imageSrc" *ngIf="imageSrc"  style="height: 700px; width:700px">
 
   <div class="d-flex justify-content-end" style="margin-top: 20px">
-    <a *ngIf="userId !== service.OwnerID" routerLink="../services/take-services/{{service._id}}" class="btn btn-md btn-primary mr-1">Ambil Services</a>
+    <a *ngIf="userId !== service.OwnerID" (click)="takeServices(service._id,service.Category)"class="btn btn-md btn-primary mr-1">AmbilServices</a>
     <a routerLink="/service" class="btn btn-md btn-danger mr-1" >Cancel</a>
   </div>
 </div>

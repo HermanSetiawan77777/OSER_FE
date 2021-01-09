@@ -39,4 +39,20 @@ export class ServicesDetailComponent implements OnInit {
         console.log(serviceId);
       });
   }
+
+  takeServices(id,cat) {
+    this.servicesServices.takeServices(id, cat)
+    .pipe(first())
+      .subscribe({
+        next: () => {
+          // get return url from query parameters or default to home page
+          const returnUrl = this.route.snapshot.queryParams.returnUrl || '/schedule';
+          this.router.navigateByUrl(returnUrl);
+        },
+        error: error => {
+          this.alertService.error(error);
+          this.loading = false;
+        }
+      });
+  }
 }
