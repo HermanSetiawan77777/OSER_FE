@@ -32,8 +32,6 @@ export class ProfileComponent implements OnInit {
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
       phone: ['', Validators.required],
-      remarks: ['', Validators.required],
-      linkedIn: ['', Validators.required],
     });
 
     const userProfileLocal = JSON.parse(localStorage.getItem('userProfile'));
