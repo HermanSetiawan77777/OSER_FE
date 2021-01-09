@@ -32,8 +32,6 @@ export class ProfileComponent implements OnInit {
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
       phone: ['', Validators.required],
-      remarks: ['', Validators.required],
-      linkedIn: ['', Validators.required],
     });
 
     const userProfileLocal = JSON.parse(localStorage.getItem('userProfile'));
@@ -50,6 +48,7 @@ export class ProfileComponent implements OnInit {
         this.UserProfileModel.birthDate = res.message[0].birthDate;
         this.UserProfileModel.email = res.message[0].email;
         this.UserProfileModel.phone = res.message[0].phone;
+        this.UserProfileModel.linkedIn = res.message[0].linkedIn;
         this.UserProfileModel.projectCompleted =
           res.message[0].ProjectCompleted;
         this.UserProfileModel.servicesCompleted =
