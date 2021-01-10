@@ -79,18 +79,26 @@ export class AccountService {
     );
   }
 
-  verifyCode(email) {
-    return this.http.post(`${environment.apiUrl}/user/SendEmail`, { email });
+  verifyCode(sendto) {
+    let header = new HttpHeaders();
+    header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
+    return this.http.post<any>(
+      `${environment.apiUrl}/user/SendEmail`,
+      { sendto },
+      { headers: header }
+    );
   }
 
   userActivation(id) {
-    return this.http.post(`${environment.apiUrl}/user/Activation/${id}`, {
-      id,
-    });
+    let header = new HttpHeaders();
+    header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
+    return this.http.post(`${environment.apiUrl}/user/Activation/${id}`, {});
   }
 
   userProfile(ownerId: string) {
-    return this.http.get<User>(`${environment.apiUrl}/user/ViewProfiles/${ownerId}`);
+    return this.http.get<User>(
+      `${environment.apiUrl}/user/ViewProfiles/${ownerId}`
+    );
   }
 
   register(user: User) {

@@ -1,22 +1,46 @@
-<div class="card">
-  <h4 class="card-header">Verifikasi Email</h4>
-  <div class="card-body">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors.required">Masukan Email Anda</div>
+<div class="container">
+  <div class="card">
+    <h4 class="card-header">Verifikasi Email</h4>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" formControlName="email" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [attr.disabled]="step1?'':null" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Masukan Email Anda</div>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">
-          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-          Submit
-        </button>
-        <a routerLink="../login" style="text-align: end" class="btn btn-link">Cancel</a>
-      </div>
-    </form>
+        <div class="form-group">
+          <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Submit
+          </button>
+          <a routerLink="../login" style="text-align: end" class="btn btn-link">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="card">
+    <h4 class="card-header">Aktifasi Akun</h4>
+    <div class="card-body">
+      <form [formGroup]="form2" (ngSubmit)="onSubmit2()">
+        <div class="form-group">
+          <label for="code">Code</label>
+          <input type="code" formControlName="code" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f2.code.errors }" [attr.disabled]="!step1?'':null" />
+          <div *ngIf="submitted && f2.code.errors" class="invalid-feedback">
+            <div *ngIf="f2.code.errors.required">Masukan Code Anda</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button [disabled]="loading" class="btn btn-primary" [attr.disabled]="!step1?'':null">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Submit
+          </button>
+          <a routerLink="../login" style="text-align: end" class="btn btn-link">Cancel</a>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
-

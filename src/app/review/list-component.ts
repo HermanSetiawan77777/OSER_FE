@@ -14,7 +14,9 @@ export class ListComponent implements OnInit {
   constructor(private reviewService: ReviewServices) {}
 
   ngOnInit() {
-    this.userId = localStorage.getItem('userid').slice(1, -1);
+    const url = window.location.pathname;
+    this.userId = url.substring(url.lastIndexOf('/') + 1);
+
     this.reviewService
       .viewReviewByOwner(this.userId)
       .pipe(first())

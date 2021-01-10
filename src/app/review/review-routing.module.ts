@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       { path: '', component: ReviewComponent },
       { path: 'listNotif', component: ListNotifComponent },
-      { path: 'list', component: ListComponent },
+      { path: 'list/:id', component: ListComponent },
     ],
   },
 ];
