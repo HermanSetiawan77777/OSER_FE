@@ -35,11 +35,16 @@
   <img [src]="imageSrc" *ngIf="imageSrc" style="height: 500px; width:500px">
 
   <div class="d-flex justify-content-end">
+    <a *ngIf="paymentbtn == true" routerLink="/schedule/schedule/paymentDetail/{{schedules[0]._id}}"
+      class="btn btn-md btn-info mr-1">
+      Cek Pembayaran
+    </a>
+
     <button *ngIf="reviewBtn == true" (click)="giveReview()" class="btn btn-md btn-info mr-1">
       Beri Ulasan
     </button>
 
-    <button *ngIf="acceptBtn == true" (click)="updateScheduleStatus('1')" class="btn btn-md btn-primary mr-1">Accept
+    <button *ngIf="acceptBtn == true" (click)="updateScheduleStatus(' 1')" class="btn btn-md btn-primary mr-1">Accept
       Schedule</button>
 
     <button *ngIf="cancelBtn == true" (click)="updateScheduleStatus('cancel')"

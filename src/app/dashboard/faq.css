@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Rubik&display=swap");
 
-body{
+body {
   background: #f6f6f6;
 }
 
-.box{
+.box {
   width: auto;
   margin-left: 100px;
   margin-right: 100px;
@@ -12,11 +12,11 @@ body{
   margin-bottom: 30px;
   background: #fff;
   border-radius: 7px;
-  box-shadow: 1px 2px 4px rgba(0,0,0,.3);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.box .heading{
-  background: #7800CF;
+.box .heading {
+  background: #7800cf;
   border-radius: 7px 7px 0px 0px;
   padding: 10px;
   color: #fff;
@@ -24,16 +24,16 @@ body{
   font-family: "Rubik";
 }
 
-.faqs{
+.faqs {
   padding: 0px 20px 20px;
 }
 
-::-webkit-details-marker{
+::-webkit-details-marker {
   float: right;
   margin-top: 3px;
 }
 
-details{
+details {
   background: #f6f6f6;
   padding: 10px 20px;
   border-radius: 7px;
@@ -44,6 +44,6 @@ details{
   cursor: pointer;
 }
 
-details summary{
+details summary {
   outline: none;
 }

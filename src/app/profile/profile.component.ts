@@ -11,7 +11,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 })
 export class ProfileComponent implements OnInit {
   form: FormGroup;
-  userId: string;
+  tempWorkcat: string[];
   submitted = false;
   loading = false;
   imgSrc =
@@ -28,46 +28,59 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.UserProfileModel = new UserProfilePage();
     this.UserProfileUpdateModel = new UserProfileUpdateModel();
+    this.tempWorkcat = [];
 
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
+      password: ['', Validators.required],
       phone: ['', Validators.required],
+      remarks: ['', Validators.required],
+      linkedIn: ['', Validators.required],
+      audio: [],
+      games: [],
+      website: [],
+      modelling: [],
     });
 
-    const userProfileLocal = JSON.parse(localStorage.getItem('userProfile'));
-    this.userId = userProfileLocal.userid;
+    let sessionProfile = JSON.parse(localStorage.getItem('userProfile'));
+    console.log(sessionProfile);
 
-    this.accountService
-      .viewProfile(this.userId)
-      .pipe(first())
-      .subscribe((res) => {
-        console.log(res);
-        this.UserProfileModel.id = res.message[0].id;
-        this.UserProfileModel.username = res.message[0].username;
-        this.UserProfileModel.gender = res.message[0].gender;
-        this.UserProfileModel.birthDate = res.message[0].birthDate;
-        this.UserProfileModel.email = res.message[0].email;
-        this.UserProfileModel.phone = res.message[0].phone;
-        this.UserProfileModel.linkedIn = res.message[0].linkedIn;
-        this.UserProfileModel.projectCompleted =
-          res.message[0].ProjectCompleted;
-        this.UserProfileModel.servicesCompleted =
-          res.message[0].ServicesCompleted;
-        this.UserProfileModel.createdDate = new Date(res.message[0].createdDate)
-          .toISOString()
-          .slice(0, 10);
-        this.UserProfileModel.remarks = res.message[0].remarks;
+    this.UserProfileModel.id = sessionProfile.userid;
+    this.UserProfileModel.username = sessionProfile.username;
+    this.UserProfileModel.password = sessionProfile.password;
+    this.UserProfileModel.gender = sessionProfile.gender;
+    this.UserProfileModel.birthDate = new Date(sessionProfile.tanggallahir)
+      .toISOString()
+      .slice(0, 10);
+    this.UserProfileModel.email = sessionProfile.email;
+    this.UserProfileModel.phone = sessionProfile.phone;
+    this.UserProfileModel.linkedIn = sessionProfile.linkedIn;
+    this.UserProfileModel.projectCompleted = sessionProfile.ProjectCompleted;
+    this.UserProfileModel.servicesCompleted = sessionProfile.ServicesCompleted;
+    this.UserProfileModel.createdDate = new Date(sessionProfile.createdDate)
+      .toISOString()
+      .slice(0, 10);
+    this.UserProfileModel.remarks = sessionProfile.remarks;
 
-        this.form.patchValue({
-          username: this.UserProfileModel.username,
-          phone: this.UserProfileModel.phone,
-          remarks: this.UserProfileModel.remarks,
-          linkedIn: this.UserProfileModel.linkedIn,
-        });
-        console.log(this.form.value);
-        console.log(this.UserProfileModel);
-        console.log(this.UserProfileModel.username);
-      });
+    this.UserProfileModel.audio = sessionProfile.Audio == '1' ? true : false;
+    this.UserProfileModel.games = sessionProfile.Games == '1' ? true : false;
+    this.UserProfileModel.website =
+      sessionProfile.Website == '1' ? true : false;
+    this.UserProfileModel.modelling =
+      sessionProfile.Modelling == '1' ? true : false;
+
+    console.log(this.UserProfileModel);
+    this.form.patchValue({
+      username: this.UserProfileModel.username,
+      password: this.UserProfileModel.password,
+      phone: this.UserProfileModel.phone,
+      remarks: this.UserProfileModel.remarks,
+      linkedIn: this.UserProfileModel.linkedIn,
+      audio: this.UserProfileModel.audio,
+      games: this.UserProfileModel.games,
+      website: this.UserProfileModel.website,
+      modelling: this.UserProfileModel.modelling,
+    });
   }
 
   get f() {
@@ -75,7 +88,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('a');
+    console.log(this.form.value);
     this.submitted = true;
 
     // reset alerts on submit
@@ -85,18 +98,39 @@ export class ProfileComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    console.log('b');
 
     this.loading = true;
 
+    this.UserProfileUpdateModel.username = this.form.value.username;
+    this.UserProfileUpdateModel.password = this.form.value.password;
+    this.UserProfileUpdateModel.phone = this.form.value.phone;
+    this.UserProfileUpdateModel.remarks = this.form.value.remarks;
+    this.UserProfileUpdateModel.linkedin = this.form.value.linkedIn;
+
+    if (this.form.value.audio == true) {
+      this.tempWorkcat.push('Audio, Video, Photography');
+    }
+    if (this.form.value.games == true) {
+      this.tempWorkcat.push('Games Development');
+    }
+    if (this.form.value.website == true) {
+      this.tempWorkcat.push('Website Development');
+    }
+    if (this.form.value.modelling == true) {
+      this.tempWorkcat.push('3D modeling & Animation');
+    }
+
+    this.UserProfileUpdateModel.workcat = this.tempWorkcat.join(';');
+
+    console.log(this.tempWorkcat);
+    console.log(this.UserProfileUpdateModel);
+    console.log(this.UserProfileModel.id);
     this.accountService
-      .updateProfile(this.userId, this.UserProfileUpdateModel)
+      .updateProfile(this.UserProfileModel.id, this.UserProfileUpdateModel)
       .pipe(first())
       .subscribe({
         next: () => {
-          console.log('object');
-          Swal.fire('Memperbaharui berhasil !', '', 'success');
-          console.log('object');
+          this.login();
           this.loading = false;
           this.submitted = false;
         },
@@ -104,6 +138,22 @@ export class ProfileComponent implements OnInit {
           Swal.fire('Memperbaharui Gagal !', error, 'failed');
           this.loading = false;
           this.submitted = false;
+        },
+      });
+  }
+
+  login() {
+    this.accountService
+      .login(this.UserProfileModel.email, this.UserProfileUpdateModel.password)
+      .pipe(first())
+      .subscribe({
+        next: () => {
+          this.ngOnInit();
+          Swal.fire('Memperbaharui berhasil !', '', 'success');
+        },
+        error: (error) => {
+          this.alertService.error(error);
+          this.loading = false;
         },
       });
   }

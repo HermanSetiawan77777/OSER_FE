@@ -5,9 +5,11 @@ import { AccountService } from '@app/_services';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent {
-    user: User;
+  user: User;
 
-    constructor(private accountService: AccountService) {
-        this.user = this.accountService.accountValue;
-    }
+  constructor(private accountService: AccountService) {
+    this.user = this.accountService.accountValue;
+  }
+
+  goTo;
 }

@@ -5,6 +5,7 @@ import { ScheduleRoutingModule } from './schedule-routing.module';
 import { ScheduleLayoutComponent } from './schedule-layout.component';
 import { ScheduleListComponent } from './schedule-list.component';
 import { ScheduleDetailComponent } from './schedule-detail.component';
+import { PaymentComponent } from './payment.component';
 import { ScheduleListByOwnerComponent } from './schedule-list-by-owner.component';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { SharedModule } from '@app/shared/shared.module';
@@ -22,6 +23,7 @@ import { SharedModule } from '@app/shared/shared.module';
     ScheduleLayoutComponent,
     ScheduleListComponent,
     ScheduleDetailComponent,
+    PaymentComponent,
     ScheduleListByOwnerComponent,
   ],
 })

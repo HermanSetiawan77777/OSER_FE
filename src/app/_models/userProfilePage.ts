@@ -1,6 +1,7 @@
 export class UserProfilePage {
   id: string;
   username: string;
+  password: string;
   gender: string;
   email: string;
   phone: string;
@@ -10,4 +11,8 @@ export class UserProfilePage {
   remarks: string;
   linkedIn: string;
   birthDate: string;
+  audio: boolean;
+  games: boolean;
+  website: boolean;
+  modelling: boolean;
 }

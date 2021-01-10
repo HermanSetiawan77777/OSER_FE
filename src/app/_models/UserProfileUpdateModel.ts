@@ -1,6 +1,8 @@
 export class UserProfileUpdateModel {
   username: string;
+  password: string;
   phone: string;
   remarks: string;
-  linkedIn: string;
+  linkedin: string;
+  workcat: string;
 }

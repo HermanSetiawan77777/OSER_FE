@@ -16,6 +16,7 @@ export class DetailRequestComponent implements OnInit {
   submitted = false;
   id: string;
   userId: string;
+
   setujuBtn = false;
   sepakatBtn = true;
   tidakSepakatBtn = true;

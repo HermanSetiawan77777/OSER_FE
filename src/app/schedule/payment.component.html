@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="card">
+        <h4 class="card-header">Pembayaran</h4>
+        <div class="card-body">
+            <div class="form-group">
+                <div class="row" style="margin: 10px">
+                    <div class="col-md-3 font-weight-bold">
+                        Nama Pemilik
+                    </div>
+                    <div class="col-md-9">
+                        {{priceDetail.OwnerName}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row" style="margin: 10px">
+                    <div class="col-md-3 font-weight-bold">
+                        Email Pemilik
+                    </div>
+                    <div class="col-md-9">
+                        {{priceDetail.OwnerMail}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row" style="margin: 10px">
+                    <div class="col-md-3 font-weight-bold">
+                        Nama Pekerja
+                    </div>
+                    <div class="col-md-9">
+                        {{priceDetail.UserName}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row" style="margin: 10px">
+                    <div class="col-md-3 font-weight-bold">
+                        Email Pekerja
+                    </div>
+                    <div class="col-md-9">
+                        {{priceDetail.UserEmail}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row" style="margin: 10px">
+                    <div class="col-md-3 font-weight-bold">
+                        Kategori
+                    </div>
+                    <div class="col-md-9">
+                        {{priceDetail.Category}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row" style="margin: 10px">
+                    <div class="col-md-3 font-weight-bold">
+                        Nama Proyek
+                    </div>
+                    <div class="col-md-9">
+                        {{priceDetail.ProjectName}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row" style="margin: 10px">
+                    <div class="col-md-3 font-weight-bold">
+                        Harga
+                    </div>
+                    <div class="col-md-9">
+                        Rp.{{priceDetail.Price}},-
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row font-italic" style="margin: 25px">
+                    untuk melakukan pembayaran dapat menghubungi email yang tertera
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row" style="margin: 20px">
+                    <a routerLink="/schedule/schedule/detail/{{scheduleId}}"
+                        class="btn btn-danger btn-block">Kembali</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

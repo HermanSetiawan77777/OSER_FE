@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ScheduleLayoutComponent } from './schedule-layout.component';
 import { ScheduleListComponent } from './schedule-list.component';
 import { ScheduleDetailComponent } from './schedule-detail.component';
+import { PaymentComponent } from './payment.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     children: [
       { path: '', component: ScheduleListComponent },
       { path: 'schedule/detail/:_id', component: ScheduleDetailComponent },
+      { path: 'schedule/paymentDetail/:_id', component: PaymentComponent },
     ],
   },
 ];
