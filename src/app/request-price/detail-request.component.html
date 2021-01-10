@@ -8,15 +8,15 @@
                             HALAMAN PENAWARAN HARGA
                         </h1>
                         <div class="col col-lg-2">
-                            <button type="button" class="btn btn-danger btn-block"
-                                (click)="kesepakatanNego('batal')">Batal Nego</button>
+                            <button type="button" class="btn btn-danger btn-block" (click)="kesepakatanNego('batal')"
+                                [attr.disabled]="batalNegoBtn ? null : ''">Batal Nego</button>
                         </div>
                         <div *ngIf="setujuBtn == true" class="col col-lg-2">
-                            <button type="button" class="btn btn-success btn-block"
-                                (click)="finnalizeNegoOwner()">Setuju</button>
+                            <button type="button" class="btn btn-success btn-block" (click)="finnalizeNegoOwner()"
+                                [attr.disabled]="setujuBtn ? null : ''">Setuju</button>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class=" row">
                         <div class="col text-info">
                             anda dapat menghubungi pemilik melalui email yang tertera
                         </div>
@@ -128,11 +128,13 @@
                                     <div class="row">
                                         <div class="col">
                                             <button type="button" class="btn btn-sm btn-success btn-block"
-                                                (click)="kesepakatanNego('setuju')">Sepakat</button>
+                                                (click)="kesepakatanNego('setuju')"
+                                                [attr.disabled]="sepakatBtn ? null : ''">Sepakat</button>
                                         </div>
                                         <div class="col">
                                             <button type="button" class="btn btn-sm btn-danger btn-block"
-                                                (click)="resetPrice()">Tidak
+                                                (click)="resetPrice()"
+                                                [attr.disabled]="tidakSepakatBtn ? null : ''">Tidak
                                                 Sepakat</button>
                                         </div>
                                     </div>
@@ -169,7 +171,8 @@
                 placeholder="masukan harga yang ingin di tawar" />
         </div>
         <div class="col-lg-3">
-            <button type="button" class="btn btn-info btn-block" (click)="nego()">Nego</button>
+            <button type="button" class="btn btn-info btn-block" (click)="nego()"
+                [attr.disabled]="negoBtn ? null : ''">Nego</button>
         </div>
     </div>
 </div>

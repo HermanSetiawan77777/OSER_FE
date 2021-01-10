@@ -17,9 +17,11 @@ export class DetailRequestComponent implements OnInit {
   id: string;
   userId: string;
 
-  setujuBtn = false;
+  setujuBtn = true;
   sepakatBtn = true;
   tidakSepakatBtn = true;
+  batalNegoBtn = true;
+  negoBtn = true;
 
   constructor(
     private requestPriceServices: RequestPriceServices,
@@ -35,8 +37,55 @@ export class DetailRequestComponent implements OnInit {
 
     this.id = this.route.snapshot.params.id;
     this.getNegoDetailData();
-    if (this.requestPrice.OwnerID == this.userId) {
-      this.setujuBtn = true;
+  }
+
+  buttonValidation() {
+    console.log(this.requestPrice);
+    console.log(this.requestPrice.statusNO);
+    console.log(this.requestPrice.OwnerID);
+    console.log(this.userId);
+    if (
+      this.requestPrice.statusNO == '98' ||
+      this.requestPrice.statusNO == '99'
+    ) {
+      this.setujuBtn = false;
+      this.negoBtn = false;
+      this.sepakatBtn = false;
+      this.tidakSepakatBtn = false;
+      this.batalNegoBtn = false;
+    } else if (this.requestPrice.OwnerID == this.userId) {
+      if (this.requestPrice.statusNO == '0') {
+        this.setujuBtn = false;
+      } else if (this.requestPrice.statusNO == '1') {
+        this.negoBtn = false;
+        this.sepakatBtn = false;
+        this.setujuBtn = false;
+      } else if (this.requestPrice.statusNO == '2') {
+        this.sepakatBtn = false;
+        this.negoBtn = false;
+        this.setujuBtn = false;
+      } else if (this.requestPrice.statusNO == '3') {
+        this.negoBtn = false;
+        this.sepakatBtn = false;
+        this.tidakSepakatBtn = false;
+        this.batalNegoBtn = false;
+      }
+    } else {
+      // user
+      if (this.requestPrice.statusNO == '0') {
+        this.sepakatBtn = false;
+      } else if (this.requestPrice.statusNO == '1') {
+        this.negoBtn = false;
+      } else if (this.requestPrice.statusNO == '2') {
+        this.sepakatBtn = false;
+        this.negoBtn = false;
+      } else if (this.requestPrice.statusNO == '3') {
+        this.setujuBtn = false;
+        this.negoBtn = false;
+        this.sepakatBtn = false;
+        this.tidakSepakatBtn = false;
+        this.batalNegoBtn = false;
+      }
     }
   }
 
@@ -48,6 +97,7 @@ export class DetailRequestComponent implements OnInit {
         // @ts-ignore
         this.requestPrice = requestPrice.message[0];
         console.log(this.requestPrice);
+        this.buttonValidation();
       });
   }
 
@@ -131,9 +181,12 @@ export class DetailRequestComponent implements OnInit {
       .pipe(first())
       .subscribe({
         next: () => {
-          this.alertService.success('Nego Dibatalkan', {
-            keepAfterRouteChange: true,
-          });
+          this.alertService.success(
+            'Negisiasi telah berhasil dan dipindahkan ke proses jadwal',
+            {
+              keepAfterRouteChange: true,
+            }
+          );
           this.router.navigate(['/requestprice'], {
             relativeTo: this.route,
           });

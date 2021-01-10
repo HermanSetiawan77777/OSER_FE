@@ -15,4 +15,5 @@ export class detailRequest {
   OwnerDeal: string;
   UserDeal: string;
   UserEmail: string;
+  statusNO: string;
 }
