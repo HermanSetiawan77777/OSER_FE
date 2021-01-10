@@ -50,7 +50,7 @@
                 <h6 class="mb-0">Tanggal Lahir</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                {{UserProfileModel.birthDate}}
+                {{UserProfileModel.birthDate | date:'dd-MM-yyyy'}}
               </div>
             </div>
             <hr>
@@ -78,28 +78,10 @@
             <hr>
             <div class="row align-items-center">
               <div class="col-sm-3">
-                <h6 class="mb-0">Proyek Selesai</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                {{UserProfileModel.projectCompleted}}
-              </div>
-            </div>
-            <hr>
-            <div class="row align-items-center">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Jasa Selesai</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                {{UserProfileModel.servicesCompleted}}
-              </div>
-            </div>
-            <hr>
-            <div class="row align-items-center">
-              <div class="col-sm-3">
                 <h6 class="mb-0">Waktu Bergabung</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                {{UserProfileModel.createdDate}}
+                {{UserProfileModel.createdDate | date:'dd-MM-yyyy'}}
               </div>
             </div>
             <hr>

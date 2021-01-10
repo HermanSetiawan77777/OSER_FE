@@ -40,7 +40,6 @@ export class DetailRequestComponent implements OnInit {
   }
 
   buttonValidation() {
-    console.log(this.requestPrice);
     console.log(this.requestPrice.statusNO);
     console.log(this.requestPrice.OwnerID);
     console.log(this.userId);
@@ -72,6 +71,7 @@ export class DetailRequestComponent implements OnInit {
       }
     } else {
       // user
+      this.setujuBtn = false;
       if (this.requestPrice.statusNO == '0') {
         this.sepakatBtn = false;
       } else if (this.requestPrice.statusNO == '1') {
@@ -80,7 +80,6 @@ export class DetailRequestComponent implements OnInit {
         this.sepakatBtn = false;
         this.negoBtn = false;
       } else if (this.requestPrice.statusNO == '3') {
-        this.setujuBtn = false;
         this.negoBtn = false;
         this.sepakatBtn = false;
         this.tidakSepakatBtn = false;

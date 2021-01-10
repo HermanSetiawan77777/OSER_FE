@@ -49,17 +49,13 @@ export class ProfileComponent implements OnInit {
     this.UserProfileModel.username = sessionProfile.username;
     this.UserProfileModel.password = sessionProfile.password;
     this.UserProfileModel.gender = sessionProfile.gender;
-    this.UserProfileModel.birthDate = new Date(sessionProfile.tanggallahir)
-      .toISOString()
-      .slice(0, 10);
+    this.UserProfileModel.birthDate = sessionProfile.tanggallahir;
     this.UserProfileModel.email = sessionProfile.email;
     this.UserProfileModel.phone = sessionProfile.phone;
     this.UserProfileModel.linkedIn = sessionProfile.linkedIn;
     this.UserProfileModel.projectCompleted = sessionProfile.ProjectCompleted;
     this.UserProfileModel.servicesCompleted = sessionProfile.ServicesCompleted;
-    this.UserProfileModel.createdDate = new Date(sessionProfile.createdDate)
-      .toISOString()
-      .slice(0, 10);
+    this.UserProfileModel.createdDate = sessionProfile.createdDate;
     this.UserProfileModel.remarks = sessionProfile.remarks;
 
     this.UserProfileModel.audio = sessionProfile.Audio == '1' ? true : false;
