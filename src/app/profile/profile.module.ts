@@ -7,6 +7,7 @@ import { JwPaginationModule } from 'jw-angular-pagination';
 import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from '@app/profile/profile-routing.module';
 import { LayoutComponent } from '@app/profile/layout.component';
+import { OwneridProfileComponent } from '@app/profile/ownerid-profile.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { LayoutComponent } from '@app/profile/layout.component';
   declarations: [
     LayoutComponent,
     ProfileComponent,
+    OwneridProfileComponent,
   ]
 })
 export class ProfileModule { }

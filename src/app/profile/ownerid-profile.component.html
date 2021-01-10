@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="row mb-3 align-items-center">
+    <h1 class="col">
+      User Profil
+    </h1>
+  </div>
+  <div *ngFor="let ownerProfile of ownerProfiles" style="margin-top: 20px">
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <div class="card-body">
+            <div class="row align-items-center" style="margin-bottom: 15px">
+              <div class="col-sm-3">
+                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Nama User</h6>
+              </div>
+              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+                {{ownerProfile.username}}
+              </div>
+            </div>
+            <div class="row align-items-center" style="margin-bottom: 15px">
+              <div class="col-sm-3">
+                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+                {{ownerProfile.email}}
+              </div>
+            </div>
+            <div class="row align-items-center" style="margin-bottom: 15px">
+              <div class="col-sm-3">
+                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Nomor Handphone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+                {{ownerProfile.phone}}
+              </div>
+            </div>
+            <div class="row align-items-center" style="margin-bottom: 15px">
+              <div class="col-sm-3">
+                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Begabung Pada</h6>
+              </div>
+              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+                {{ownerProfile.createdDate | date}}
+              </div>
+            </div>
+            <div class="row align-items-center" style="margin-bottom: 15px">
+              <div class="col-sm-3">
+                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Proyek selesai</h6>
+              </div>
+              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+                {{ownerProfile.ProjectCompleted}}
+              </div>
+            </div>
+            <div class="row align-items-center" style="margin-bottom: 15px">
+              <div class="col-sm-3">
+                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Jasa Selesai</h6>
+              </div>
+              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+                {{ownerProfile.ServicesCompleted}}
+              </div>
+            </div>
+            <div class="row align-items-center" style="margin-bottom: 15px">
+              <div class="col-sm-3">
+                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">LinkedIn</h6>
+              </div>
+              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+                {{ownerProfile.linkedIn}}
+              </div>
+            </div>
+            <div class="row align-items-center" style="margin-bottom: 15px">
+              <div class="col-sm-3">
+                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Catatan</h6>
+              </div>
+              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+                {{ownerProfile.Remarks}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--<div>
+   <h4>
+     Nama User
+   </h4>
+    <p style="font-size: 20px">{{ ownerProfile.username }}</p>
+  </div>
+  <div>
+    <h4>Email</h4>
+    <p style="font-size: 20px">{{ ownerProfile.email}}</p>
+  </div>
+  <div>
+    <h4>Nomor Handphone</h4>
+    <p style="font-size: 20px">{{ownerProfile.phone}}</p>
+  </div>
+  <div>
+    <h4>Proyek Selesai</h4>
+    <p style="font-size: 20px">{{ownerProfile.ProjectCompleted}}</p>
+  </div>
+  <div>
+    <h4>Jasa Selesai</h4>
+    <p style="font-size: 20px">{{ownerProfile.ServicesCompleted}}</p>
+  </div>
+  <div>
+    <h4>LinkedIn</h4>
+    <p style="font-size: 20px">{{ownerProfile.linkedIn}}</p>
+  </div>
+  <div>
+    <h4>Catatan</h4>
+    <p style="font-size: 20px">{{ownerProfile.remarks}}</p>
+  </div>
+
+  <img [src]="imageSrc" *ngIf="imageSrc" style="height: 700px; width:500px">
+
+  <div class="d-flex justify-content-end">
+    <a routerLink="/home" class="btn btn-md btn-danger mr-1">Kembali</a>
+  </div>-->

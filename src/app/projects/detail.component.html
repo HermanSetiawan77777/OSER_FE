@@ -3,7 +3,14 @@
 </h1>
 <div *ngFor="let project of projects" style="margin-top: 60px">
   <div>
-    <h4>Nama Pemilik</h4>
+    <div class="row">
+      <div class="col">
+        <h4>Nama Pemilik</h4>
+      </div>
+      <div class="col">
+        <button type="button" class="btn-secondary" routerLink="/profile/{{project.OwnerID}}">Profile {{ project.OwnerName }}</button>
+      </div>
+    </div>
     <p style="font-size: 20px">{{ project.OwnerName }}</p>
   </div>
   <div>

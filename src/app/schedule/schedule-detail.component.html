@@ -4,8 +4,15 @@
   </h1>
 </div>
 <div *ngFor="let schedule of schedules" style="margin-top: 60px">
+  <div class="row">
+    <div class="col">
+      <h4>Nama Pemilik</h4>
+    </div>
+    <div class="col">
+      <button type="button" class="btn-secondary" routerLink="/profile/{{schedule.OwnerID}}">Profile {{ schedule.OwnerName }}</button>
+    </div>
+  </div>
   <div>
-    <h4>Nama Pemilik</h4>
     <p style="font-size: 20px">{{schedule.OwnerName}}</p>
   </div>
   <div>

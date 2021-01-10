@@ -32,7 +32,7 @@ export class DetailComponent {
       .subscribe((projects) => {
         this.projects = projects.message;
         console.log((this.projects = projects.message));
-        if (this.projects[0].Image != undefined) {
+        if (this.projects[0].Image !== undefined) {
           const imageId = this.projects[0].Image.split('/')[1];
           this.imageSrc = `${environment.apiUrl}/files/ViewLicense/${imageId}`;
         }

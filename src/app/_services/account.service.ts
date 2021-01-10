@@ -89,6 +89,10 @@ export class AccountService {
     });
   }
 
+  userProfile(ownerId: string) {
+    return this.http.get<User>(`${environment.apiUrl}/user/ViewProfiles/${ownerId}`);
+  }
+
   register(user: User) {
     return this.http.post(`${environment.apiUrl}/user/register`, user);
   }
