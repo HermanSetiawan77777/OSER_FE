@@ -9,7 +9,8 @@
       <h4>Nama Pemilik</h4>
     </div>
     <div class="col">
-      <button type="button" class="btn-secondary" routerLink="/profile/{{schedule.OwnerID}}">Profile {{ schedule.OwnerName }}</button>
+      <button type="button" class="btn-secondary" routerLink="/profile/{{schedule.OwnerID}}">Profile {{
+        schedule.OwnerName }}</button>
     </div>
   </div>
   <div>
@@ -40,7 +41,8 @@
       Cek Pembayaran
     </a>
 
-    <button *ngIf="reviewBtn == true" (click)="giveReview()" class="btn btn-md btn-info mr-1">
+    <button *ngIf="reviewBtn == true" (click)="giveReview()" class="btn btn-md btn-info mr-1"
+      [attr.disabled]="reviewStatus ? null : ''">
       Beri Ulasan
     </button>
 

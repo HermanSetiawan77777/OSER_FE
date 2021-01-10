@@ -28,31 +28,40 @@ export class ServicesDetailComponent implements OnInit {
   ngOnInit() {
     const url = window.location.pathname;
     const serviceId = url.substring(url.lastIndexOf('/') + 1);
+    this.userId = localStorage.getItem('userid').slice(1, -1);
     this.servicesServices
       .detailServices(serviceId)
       .pipe(first())
       .subscribe((services) => {
         console.log(services.message);
         this.services = services.message;
-        const imageId = this.services[0].Image.split('/')[1];
-        this.imageSrc = `${environment.apiUrl}/files/ViewLicense/${imageId}`;
-        console.log(serviceId);
+        if (
+          this.services[0].Image != undefined ||
+          this.services[0].Image != null
+        ) {
+          const imageId = this.services[0].Image.split('/')[1];
+          this.imageSrc = `${environment.apiUrl}/files/ViewLicense/${imageId}`;
+        }
+        console.log(this.services[0].OwnerID);
+        console.log(this.userId);
       });
   }
 
-  takeServices(id,cat) {
-    this.servicesServices.takeServices(id, cat)
-    .pipe(first())
+  takeServices(id, cat) {
+    this.servicesServices
+      .takeServices(id, cat)
+      .pipe(first())
       .subscribe({
         next: () => {
           // get return url from query parameters or default to home page
-          const returnUrl = this.route.snapshot.queryParams.returnUrl || '/schedule';
+          const returnUrl =
+            this.route.snapshot.queryParams.returnUrl || '/schedule';
           this.router.navigateByUrl(returnUrl);
         },
-        error: error => {
+        error: (error) => {
           this.alertService.error(error);
           this.loading = false;
-        }
+        },
       });
   }
 }

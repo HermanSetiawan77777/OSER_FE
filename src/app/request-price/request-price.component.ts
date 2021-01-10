@@ -42,7 +42,6 @@ export class RequestPriceComponent implements OnInit, OnChanges {
 
   // tslint:disable-next-line:typedef
   setPageRequestPrice(page: number) {
-    console.log('a');
     // get new pager object for specified page
     this.pager = paginate(
       this.requestPrice.length,
@@ -69,8 +68,6 @@ export class RequestPriceComponent implements OnInit, OnChanges {
   }
   onChangePage(pageOfItems: Array<any>) {
     // update current page of items
-    console.log(pageOfItems);
-    console.log('a');
     this.pageOfItems = pageOfItems;
   }
 }

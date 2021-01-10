@@ -13,6 +13,7 @@ export class ScheduleDetailComponent implements OnInit {
   schedules = null;
   loading: false;
   imageSrc: string;
+  reviewStatus = false;
 
   acceptBtn = false;
   finnishBtn = false;
@@ -66,6 +67,9 @@ export class ScheduleDetailComponent implements OnInit {
         this.reviewBtn = true;
         this.paymentbtn = true;
       }
+    }
+    if (this.schedules[0].Review == 'false') {
+      this.reviewStatus = true;
     }
   }
 

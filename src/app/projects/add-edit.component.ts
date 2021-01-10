@@ -75,7 +75,7 @@ export class AddEditComponent implements OnInit {
     // reset alerts on submit
     this.alertService.clear();
 
-    if (this.form.value.price <= '999') {
+    if (this.form.value.price <= 999) {
       this.alertService.error('harga minimal 1000', {
         keepAfterRouteChange: true,
       });

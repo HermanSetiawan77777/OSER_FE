@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { first } from 'rxjs/operators';
 import { JobServicesService } from '../_services/job-services.service';
 import { Services } from '../_models/services';
@@ -6,10 +13,9 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 // @ts-ignore
 import paginate from 'jw-paginate';
 
-
 @Component({
   selector: 'app-services-list-component',
-  templateUrl: 'services-list.component.html'
+  templateUrl: 'services-list.component.html',
 })
 export class ServicesListComponent implements OnInit, OnChanges {
   services = [];
@@ -25,9 +31,10 @@ export class ServicesListComponent implements OnInit, OnChanges {
   constructor(private servicesServices: JobServicesService) {}
   ngOnInit() {
     this.userId = localStorage.getItem('userid').slice(1, -1);
-    this.servicesServices.getServices()
+    this.servicesServices
+      .getServices()
       .pipe(first())
-      .subscribe(jobServices => {
+      .subscribe((jobServices) => {
         // @ts-ignore
         this.services = jobServices.message;
         if (this.services !== [] && this.services.length !== 0) {
@@ -39,10 +46,18 @@ export class ServicesListComponent implements OnInit, OnChanges {
   setPageServices(page: number) {
     console.log('a');
     // get new pager object for specified page
-    this.pager = paginate(this.services.length, page, this.itemsPerPage, this.maxSize);
+    this.pager = paginate(
+      this.services.length,
+      page,
+      this.itemsPerPage,
+      this.maxSize
+    );
 
     // get new page of items from items array
-    this.pageOfItems = this.services.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    this.pageOfItems = this.services.slice(
+      this.pager.startIndex,
+      this.pager.endIndex + 1
+    );
 
     // call change page function in parent component
     this.changePage.emit(this.pageOfItems);
@@ -63,32 +78,29 @@ export class ServicesListComponent implements OnInit, OnChanges {
   }
 
   deleteServices(id) {
-    const user = this.services.find(x => x._id === id);
+    const user = this.services.find((x) => x._id === id);
     Swal.fire({
       title: 'Apakah Anda Yakin?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Hapus',
-      cancelButtonText: 'Cancel'
+      cancelButtonText: 'Cancel',
     }).then((result) => {
       if (result.value) {
         Swal.fire(
           'Deleted!',
-          'Services Berhasil Di Hapus',
+          'Services berhasil di hapus',
           'success',
-          this.servicesServices.deleteServices(id)
+          this.servicesServices
+            .deleteServices(id)
             .pipe(first())
             .subscribe(() => {
-              this.services = this.services.filter(x => x._id !== id);
+              this.services = this.services.filter((x) => x._id !== id);
               location.reload();
             })
         );
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          'Cancel',
-          'Hapus Services Dibatalkan',
-          'error',
-      );
+        Swal.fire('Cancel', 'Hapus Services Dibatalkan', 'error');
       }
     });
   }

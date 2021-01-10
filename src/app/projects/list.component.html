@@ -18,7 +18,7 @@
       <td>{{project.Category}}</td>
       <td>{{project.ProjectName}}</td>
       <td>Rp.{{project.Price}},-</td>
-      <td>{{project.Deadline}}</td>
+      <td>{{project.Deadline | date:'dd-MM-yyyy'}}</td>
       <td>{{project.Duration}} Hari</td>
       <td>{{project.Remarks | truncate: 30}}</td>
       <td style="white-space: nowrap">

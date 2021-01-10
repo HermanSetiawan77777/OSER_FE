@@ -57,7 +57,10 @@ export class JobServicesService {
     formData.append('price', services.price);
     formData.append('duration', services.duration);
     formData.append('remarks', services.remarks);
-    formData.append('uploadedFiles', file, file.name);
+    if (file != undefined || file != null) {
+      formData.append('uploadedFiles', file, file.name);
+    }
+
     let header = new HttpHeaders();
     header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
     return this.http.post(

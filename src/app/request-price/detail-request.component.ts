@@ -145,7 +145,6 @@ export class DetailRequestComponent implements OnInit {
   }
 
   resetPrice() {
-    console.log('a');
     this.requestPriceServices
       .resetRequestPrice(this.id)
       .pipe(first())
@@ -176,7 +175,7 @@ export class DetailRequestComponent implements OnInit {
       this.alertService.error('harga minimal nego adalah 100');
       return;
     }
-
+    console.log(this.newPrice);
     this.requestPriceServices
       .negoRequestPrice(this.id, this.newPrice)
       .pipe(first())
@@ -200,7 +199,7 @@ export class DetailRequestComponent implements OnInit {
           //this.router.navigate(['/requestprice'], { relativeTo: this.route });
         },
         error: (error) => {
-          Swal.fire('Negosiasi gagal di request', error, 'failed');
+          Swal.fire('Negosiasi gagal di request', error, 'error');
         },
       });
   }
