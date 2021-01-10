@@ -1,57 +1,49 @@
-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  background: #0B2647;
-  color: white;
-  line-height: 1.5;
-  letter-spacing: 0.5px;
-  text-align: center;
-  height: 100vh;
-}
-h1 {
-  font-size: clamp(20px, 4vw, 30px);
-  line-height: 1.2;
-  margin-bottom: 40px;
-  margin-top: 150px;
-}
-main {
-  max-width: 520px;
-  margin: 0 auto;
-}
-summary {
-  font-size: 1.25rem;
-  font-weight: 600;
-  background-color: #fafafa;
-  background-image: radial-gradient(circle at 40% 91%, rgba(251, 251, 251,0.04) 0%, rgba(251, 251, 251,0.04) 50%,rgba(229, 229, 229,0.04) 50%, rgba(229, 229, 229,0.04) 100%),radial-gradient(circle at 66% 97%, rgba(36, 36, 36,0.04) 0%, rgba(36, 36, 36,0.04) 50%,rgba(46, 46, 46,0.04) 50%, rgba(46, 46, 46,0.04) 100%),radial-gradient(circle at 86% 7%, rgba(40, 40, 40,0.04) 0%, rgba(40, 40, 40,0.04) 50%,rgba(200, 200, 200,0.04) 50%, rgba(200, 200, 200,0.04) 100%),radial-gradient(circle at 15% 16%, rgba(99, 99, 99,0.04) 0%, rgba(99, 99, 99,0.04) 50%,rgba(45, 45, 45,0.04) 50%, rgba(45, 45, 45,0.04) 100%),radial-gradient(circle at 75% 99%, rgba(243, 243, 243,0.04) 0%, rgba(243, 243, 243,0.04) 50%,rgba(37, 37, 37,0.04) 50%, rgba(37, 37, 37,0.04) 100%),linear-gradient(90deg, rgb(34, 222, 237),rgb(135, 89, 215));
-  color: #fff;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  outline: none;
-  border-radius: 0.25rem;
-  text-align: left;
-  cursor: pointer;
-  position: relative;
-}
-p { text-align: left; }
-details[open] summary ~ * {
-  animation: sweep .5s ease-in-out;
-}
-@keyframes sweep {
-  0%    {opacity: 0; margin-top: -10px}
-  100%  {opacity: 1; margin-top: 0px}
-}
-details > summary::after {
-  position: absolute;
-  content: "+";
-  right: 20px;
-}
-details[open] > summary::after {
-  position: absolute;
-  content: "-";
-  right: 20px;
-}
-details > summary::-webkit-details-marker {
-  display: none;
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+body{
+  background: #f6f6f6;
 }
 
+.box{
+  width: auto;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 1px 2px 4px rgba(0,0,0,.3);
+}
+
+.box .heading{
+  background: #7800CF;
+  border-radius: 7px 7px 0px 0px;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  font-family: "Rubik";
+}
+
+.faqs{
+  padding: 0px 20px 20px;
+}
+
+::-webkit-details-marker{
+  float: right;
+  margin-top: 3px;
+}
+
+details{
+  background: #f6f6f6;
+  padding: 10px 20px;
+  border-radius: 7px;
+  margin-top: 20px;
+  font-family: "Rubik";
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+details summary{
+  outline: none;
+}
