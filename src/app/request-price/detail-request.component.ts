@@ -62,7 +62,7 @@ export class DetailRequestComponent implements OnInit {
       } else if (this.requestPrice.statusNO == '2') {
         this.sepakatBtn = false;
         this.negoBtn = false;
-        this.setujuBtn = false;
+        this.setujuBtn = true;
       } else if (this.requestPrice.statusNO == '3') {
         this.negoBtn = false;
         this.sepakatBtn = false;
