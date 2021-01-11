@@ -41,6 +41,7 @@ export class ServicesAddEditComponent implements OnInit {
       duration: ['', Validators.required],
       price: ['', Validators.required],
       image: [''],
+      remarks: ['']
     });
 
     if (!this.isAddMode) {

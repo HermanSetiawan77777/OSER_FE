@@ -34,6 +34,7 @@ export class AddEditComponent implements OnInit {
       deadline: ['', Validators.required],
       duration: ['', Validators.required],
       image: [''],
+      remarks:[''],
     });
 
     if (!this.isAddMode) {
@@ -96,6 +97,7 @@ export class AddEditComponent implements OnInit {
 
   private registerProjects() {
     // @ts-ignore
+  //  console.log(this.form.value)
     this.projectServices
       .registerProject(this.form.value, this.fileImage)
       .pipe(first())

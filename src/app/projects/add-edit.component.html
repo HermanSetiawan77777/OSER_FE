@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="form-group col">
-      <label for="price">Harga</label><br>
+      <label for="price">Harga (Rp)</label><br>
       <input type="price" formControlName="price" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && f.price.errors?.required }" />
       <div *ngIf="submitted && f.price.errors?.required" class="invalid-feedback">
@@ -47,7 +47,7 @@
     </div>
     <div class="form-group col">
       <label tooltip="Berapa Lama Project Akan Dikerjakan Oleh User" autoPlacement="true" for="duration">Durasi
-        Pengerjaan</label>
+        Pengerjaan (Hari)</label>
       <input type="number" formControlName="duration" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && f.duration.errors?.required }" />
       <div *ngIf="submitted && f.duration.errors?.required" class="invalid-feedback">
