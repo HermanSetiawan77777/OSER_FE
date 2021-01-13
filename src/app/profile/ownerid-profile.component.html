@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row mb-3 align-items-center">
     <h1 class="col">
-      User Profil
+      Profil Pemilik
     </h1>
   </div>
   <div *ngFor="let ownerProfile of ownerProfiles" style="margin-top: 20px">
@@ -11,7 +11,7 @@
           <div class="card-body">
             <div class="row align-items-center" style="margin-bottom: 15px">
               <div class="col-sm-3">
-                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Nama User</h6>
+                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Nama Pemilik</h6>
               </div>
               <div class="col-sm-9 text-secondary" style="font-size: 20px;">
                 {{ownerProfile.username}}
@@ -59,7 +59,7 @@
             </div>
             <div class="row align-items-center" style="margin-bottom: 15px">
               <div class="col">
-                <button class="btn btn-primary" (click)="goto()">Lihat Ulasan User</button>
+                <button class="btn btn-primary" (click)="goto()">Lihat Ulasan Pemilik</button>
               </div>
             </div>
           </div>
