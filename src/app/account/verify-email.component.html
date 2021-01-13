@@ -14,9 +14,9 @@
         <div class="form-group">
           <button [disabled]="loading" class="btn btn-primary">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Submit
+            Kirim
           </button>
-          <a routerLink="../login" style="text-align: end" class="btn btn-link">Cancel</a>
+          <a routerLink="../login" style="text-align: end" class="btn btn-link">Kembali</a>
         </div>
       </form>
     </div>
@@ -36,9 +36,9 @@
         <div class="form-group">
           <button [disabled]="loading" class="btn btn-primary" [attr.disabled]="!step1 ? '' : null">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Submit
+            Verifikasi 
           </button>
-          <a routerLink="../login" style="text-align: end" class="btn btn-link">Cancel</a>
+          <a routerLink="../login" style="text-align: end" class="btn btn-link">Kembali</a>
         </div>
       </form>
     </div>
