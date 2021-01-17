@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
+      password: ['', Validators.required],
       phone: ['', Validators.required],
       remarks: [''],
       linkedIn: [''],
@@ -41,11 +42,12 @@ export class ProfileComponent implements OnInit {
       modelling: [],
     });
 
-    const sessionProfile = JSON.parse(localStorage.getItem('userProfile'));
+    let sessionProfile = JSON.parse(localStorage.getItem('userProfile'));
     console.log(sessionProfile);
 
     this.UserProfileModel.id = sessionProfile.userid;
     this.UserProfileModel.username = sessionProfile.username;
+    this.UserProfileModel.password = sessionProfile.password;
     this.UserProfileModel.gender = sessionProfile.gender;
     this.UserProfileModel.birthDate = sessionProfile.tanggallahir;
     this.UserProfileModel.email = sessionProfile.email;
@@ -56,16 +58,17 @@ export class ProfileComponent implements OnInit {
     this.UserProfileModel.createdDate = sessionProfile.createdDate;
     this.UserProfileModel.remarks = sessionProfile.remarks;
 
-    this.UserProfileModel.audio = sessionProfile.Audio === '1';
-    this.UserProfileModel.games = sessionProfile.Games === '1';
+    this.UserProfileModel.audio = sessionProfile.Audio == '1' ? true : false;
+    this.UserProfileModel.games = sessionProfile.Games == '1' ? true : false;
     this.UserProfileModel.website =
-      sessionProfile.Website === '1';
+      sessionProfile.Website == '1' ? true : false;
     this.UserProfileModel.modelling =
-      sessionProfile.Modelling === '1';
+      sessionProfile.Modelling == '1' ? true : false;
 
     console.log(this.UserProfileModel);
     this.form.patchValue({
       username: this.UserProfileModel.username,
+      password: this.UserProfileModel.password,
       phone: this.UserProfileModel.phone,
       remarks: this.UserProfileModel.remarks,
       linkedIn: this.UserProfileModel.linkedIn,
@@ -95,20 +98,21 @@ export class ProfileComponent implements OnInit {
     this.loading = true;
 
     this.UserProfileUpdateModel.username = this.form.value.username;
+    this.UserProfileUpdateModel.password = this.form.value.password;
     this.UserProfileUpdateModel.phone = this.form.value.phone;
     this.UserProfileUpdateModel.remarks = this.form.value.remarks;
     this.UserProfileUpdateModel.linkedin = this.form.value.linkedIn;
 
-    if (this.form.value.audio === true) {
+    if (this.form.value.audio == true) {
       this.tempWorkcat.push('Audio, Video, Photography');
     }
-    if (this.form.value.games === true) {
+    if (this.form.value.games == true) {
       this.tempWorkcat.push('Games Development');
     }
-    if (this.form.value.website === true) {
+    if (this.form.value.website == true) {
       this.tempWorkcat.push('Website Development');
     }
-    if (this.form.value.modelling === true) {
+    if (this.form.value.modelling == true) {
       this.tempWorkcat.push('3D modeling & Animation');
     }
 
