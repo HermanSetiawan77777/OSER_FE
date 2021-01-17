@@ -105,6 +105,12 @@ export class AccountService {
     return this.http.post(`${environment.apiUrl}/user/register`, user);
   }
 
+  changepassword(id: string, user: User) {
+    let header = new HttpHeaders();
+    header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
+    return this.http.post(`${environment.apiUrl}/user/UpdatePassword/${id}`,user,  {headers: header});
+  }
+
   forgotpassword(email) {
     return this.http.post<User>(
       `${environment.apiUrl}/user/ForgetPW/${email}`,

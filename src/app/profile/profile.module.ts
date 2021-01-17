@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from '@app/profile/profile-routing.module';
 import { LayoutComponent } from '@app/profile/layout.component';
 import { OwneridProfileComponent } from '@app/profile/ownerid-profile.component';
+import { ChangePasswordComponent } from '@app/profile/change-password.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { OwneridProfileComponent } from '@app/profile/ownerid-profile.component'
     LayoutComponent,
     ProfileComponent,
     OwneridProfileComponent,
+    ChangePasswordComponent,
   ]
 })
 export class ProfileModule { }

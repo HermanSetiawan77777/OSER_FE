@@ -3,6 +3,11 @@
     <h1 class="col">
       Profil Pengguna
     </h1>
+    <div class="row align-items-right mr-3">
+      <button routerLink="/profile/changepassword/{{UserProfileModel.id}}" class="btn btn-secondary">
+        Ganti Kata Sandi
+      </button>
+    </div>
   </div>
 
   <div class="row">
@@ -19,19 +24,6 @@
                   [ngClass]="{ 'is-invalid': submitted && f.username.errors?.required }" />
                 <div *ngIf="submitted && f.username.errors?.required" class="invalid-feedback">
                   <div *ngIf="f.username.errors?.required">Nama Pengguna Harus Diisi</div>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <div class="row align-items-center">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Kata Sandi</h6>
-              </div>
-              <div class="col-sm-9">
-                <input type="text" formControlName="password" class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && f.password.errors?.required }" />
-                <div *ngIf="submitted && f.password.errors?.required" class="invalid-feedback">
-                  <div *ngIf="f.password.errors?.required">password Pengguna Harus Diisi</div>
                 </div>
               </div>
             </div>
@@ -118,7 +110,7 @@
                       <label for="audio">Audio, Video, Photography</label>
                     </div>
                     <div class="col-md-auto mx-1">
-                      <input type="checkbox" formControlName="games" [checked]="UserProfileModel.games" />
+                      <input type="checkbox" formContfirolName="games" [checked]="UserProfileModel.games" />
                     </div>
                     <div class="col-md-auto mr-1">
                       <label for="games">Games Development</label>
