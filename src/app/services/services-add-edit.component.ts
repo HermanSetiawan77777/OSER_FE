@@ -50,11 +50,13 @@ export class ServicesAddEditComponent implements OnInit {
         .pipe(first())
         .subscribe((services) => {
           this.services = services.message;
-          if (services.message[0] != null || services.message[0] != undefined) {
+          if (
+            this.services[0].Image !== undefined ||
+            this.services[0].Image !== null
+          ) {
             const imageId = this.services[0].Image.split('/')[1];
             this.imageSrc = `${environment.apiUrl}/files/ViewLicense/${imageId}`;
           }
-
           this.form.patchValue({
             category: this.services[0].Category,
             servicesname: this.services[0].ServicesName,
