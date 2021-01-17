@@ -1,6 +1,9 @@
 ﻿<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user"> -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
   <div class="navbar-nav w-100 d-flex">
+    
+    <a class="nav-item nav-link p-2" routerLink="../" ><img src="\assets\images\logo081.png" alt="" style="width:70px;height:35px;"></a>
     <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active"
       [routerLinkActiveOptions]="{exact: true}">Beranda</a>
     <a class="nav-item nav-link p-2" routerLink="/project" routerLinkActive="active">Proyek</a>
@@ -8,7 +11,9 @@
     <a class="nav-item nav-link p-2" routerLink="/schedule" routerLinkActive="active">Jadwal</a>
     <a class="nav-item nav-link p-2" routerLink="/requestprice" routerLinkActive="active">Nego</a>
     <a class="nav-item nav-link p-2" routerLink="/profile" routerLinkActive="active">Profil</a>
-    <a class="nav-item nav-link ml-auto p-2" (click)="logout()">Keluar</a>
+
+    <a class="nav-item nav-link ml-auto p-2" routerLink="../account/login" title="" *ngIf="!user">Masuk</a>
+    <a class="nav-item nav-link ml-auto p-2" (click)="logout() "*ngIf="user">Keluar</a>
   </div>
 </nav>
 
