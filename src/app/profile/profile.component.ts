@@ -145,7 +145,7 @@ export class ProfileComponent implements OnInit {
       .subscribe({
         next: () => {
           this.ngOnInit();
-          Swal.fire('Memperbaharui berhasil !', '', 'success');
+          Swal.fire('Memperbaharui berhasil !!!', '', 'success');
         },
         error: (error) => {
           this.alertService.error(error);
