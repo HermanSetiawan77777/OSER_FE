@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService, AlertService } from '@app/_services';
 import { first } from 'rxjs/operators';
 import { MustMatch } from '@app/account/register.component';
+import { changePasswordModel } from '../_models/changePasswordModel';
 
 @Component({
   templateUrl: 'change-password.component.html'
@@ -12,7 +13,7 @@ export class ChangePasswordComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
-
+  changePaswordModel: changePasswordModel;
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -22,6 +23,7 @@ export class ChangePasswordComponent implements OnInit {
   ) { }
 
   ngOnInit(){
+    this.changePaswordModel=new changePasswordModel();
     this.form = this.formBuilder.group({
       PrevPassword: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -47,7 +49,12 @@ export class ChangePasswordComponent implements OnInit {
     }
 
     this.loading = true;
-    this.accountService.changepassword(this.f.PrevPassword.value, this.f.password.value)
+    let id = this.route.snapshot.params.id;
+    console.log(this.f.password.value)
+    console.log(this.f.PrevPassword.value)
+    this.changePaswordModel.password=this.f.password.value
+    this.changePaswordModel.PrevPassword=this.f.PrevPassword.value
+    this.accountService.changepassword(id, this.changePaswordModel)
       .pipe(first())
       .subscribe({
         next: () => {

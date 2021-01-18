@@ -9,6 +9,7 @@ import { User } from '@app/_models';
 import { UserProfile } from '../_models/userProfile';
 import { Services } from '@app/_models/services';
 import { UserProfileUpdateModel } from '../_models/UserProfileUpdateModel';
+import { changePasswordModel } from '../_models/changePasswordModel';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -105,7 +106,7 @@ export class AccountService {
     return this.http.post(`${environment.apiUrl}/user/register`, user);
   }
 
-  changepassword(id: string, user: User) {
+  changepassword(id: string, user: changePasswordModel) {
     let header = new HttpHeaders();
     header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
     return this.http.post(`${environment.apiUrl}/user/UpdatePassword/${id}`,user,  {headers: header});
