@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService, AlertService } from '@app/_services';
 import { first } from 'rxjs/operators';
 import { MustMatch } from '@app/account/register.component';
-import { ChangePws } from '../_models/ChangePws';
 
 @Component({
   templateUrl: 'change-password.component.html'
@@ -13,7 +12,6 @@ export class ChangePasswordComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
-  ChangePws: ChangePws;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,7 +22,6 @@ export class ChangePasswordComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-    // this.ChangePws = new ChangePws();
     this.form = this.formBuilder.group({
       PrevPassword: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],

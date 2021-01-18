@@ -9,7 +9,6 @@ import { User } from '@app/_models';
 import { UserProfile } from '../_models/userProfile';
 import { Services } from '@app/_models/services';
 import { UserProfileUpdateModel } from '../_models/UserProfileUpdateModel';
-import { ChangePws } from '../_models/changePws';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -106,31 +105,11 @@ export class AccountService {
     return this.http.post(`${environment.apiUrl}/user/register`, user);
   }
 
-
-  changepassword(id: string, user: ChangePws) {
-     let header = new HttpHeaders();
-    // header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
-    // return this.http.post(`${environment.apiUrl}/user/UpdatePassword/${id}`,user,  {headers: header});
-    return this.http.post(`${environment.apiUrl}/user/UpdatePassword/${id}`,user);
+  changepassword(id: string, user: User) {
+    let header = new HttpHeaders();
+    header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
+    return this.http.post(`${environment.apiUrl}/user/UpdatePassword/${id}`,user,  {headers: header});
   }
-
-
-  // updateProfile(id: string, userModel: UserProfileUpdateModel) {
-  //   let header = new HttpHeaders();
-  //   header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
-  //   return this.http.post(
-  //     `${environment.apiUrl}/user/updateuser/${id}`,
-  //     userModel,
-  //     { headers: header }
-  //   );
-  // }
-
-
-  // changepassword(id: string, user: User) {
-  //   let header = new HttpHeaders();
-  //   header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
-  //   return this.http.post(`${environment.apiUrl}/user/UpdatePassword/${id}`,user,  {headers: header});
-  // }
 
   forgotpassword(email) {
     return this.http.post<User>(
