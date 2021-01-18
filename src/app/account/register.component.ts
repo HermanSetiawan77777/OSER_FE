@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
         confirmPassword: ['', [Validators.required]],
         tanggallahir: ['', Validators.required],
         gender: ['', Validators.required],
-        workcat: ['', Validators.required],
+        // workcat: ['', Validators.required],
         ktp: [
           '',
           [

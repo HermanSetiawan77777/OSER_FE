@@ -3,21 +3,21 @@
   <div class="card-body">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="firstName">Nama Depan</label>
-        <input type="text" placeholder="Masukan Nama depan" formControlName="username" class="form-control"
+        <label for="firstName">Nama </label>
+        <input type="text" placeholder="Masukan Nama " formControlName="username" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
           <div *ngIf="f.username.errors.required">Nama Depan Harus Diisi</div>
         </div>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="lastName">Nama Belakang</label>
         <input type="text" placeholder="Masukan Nama Belakang" formControlName="username" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
           <div *ngIf="f.username.errors.required">Nama Belakang Harus Diisi</div>
         </div>
-      </div>
+      </div> -->
       <div class="form-group">
         <label for="gender">Jenis Kelamin</label>
         <select formControlName="gender" placeholder="Pilih Jenis Kelamin" class="form-control"
@@ -58,7 +58,7 @@
         <label for="linkedin">Link Linkedin </label><img [src]="imgSrc" class="ml-2" style="height: 30px; width:50px">
         <input type="text" formControlName="linkedin" placeholder="Masukan Link Linkedin anda" class="form-control" />
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="workcat">Preferensi Pekerjaan</label>
         <select formControlName="workcat" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.workcat.errors?.required }">
@@ -69,7 +69,7 @@
           <option value="3D modeling & Animation">3D modeling & Animation</option>
           <option value="others">others</option>
         </select>
-      </div>
+      </div> -->
       <div class="form-group">
         <label for="tanggallahir">Tanggal Lahir</label>
         <input type="date" formControlName="tanggallahir" class="form-control"
