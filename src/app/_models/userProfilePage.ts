@@ -8,9 +8,9 @@ export class UserProfilePage {
   projectCompleted: number;
   servicesCompleted: number;
   createdDate: string;
-  remarks: string;
+  Remarks: string;
   linkedIn: string;
-  birthDate: string;
+  tanggallahir: string;
   audio: boolean;
   games: boolean;
   website: boolean;

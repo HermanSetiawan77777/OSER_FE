@@ -49,14 +49,14 @@ export class ProfileComponent implements OnInit {
     this.UserProfileModel.username = sessionProfile.username;
     this.UserProfileModel.password = sessionProfile.password;
     this.UserProfileModel.gender = sessionProfile.gender;
-    this.UserProfileModel.birthDate = sessionProfile.tanggallahir;
+    this.UserProfileModel.tanggallahir = sessionProfile.tanggallahir;
     this.UserProfileModel.email = sessionProfile.email;
     this.UserProfileModel.phone = sessionProfile.phone;
     this.UserProfileModel.linkedIn = sessionProfile.linkedIn;
     this.UserProfileModel.projectCompleted = sessionProfile.ProjectCompleted;
     this.UserProfileModel.servicesCompleted = sessionProfile.ServicesCompleted;
     this.UserProfileModel.createdDate = sessionProfile.createdDate;
-    this.UserProfileModel.remarks = sessionProfile.remarks;
+    this.UserProfileModel.Remarks = sessionProfile.remarks;
 
     this.UserProfileModel.audio = sessionProfile.Audio == '1' ? true : false;
     this.UserProfileModel.games = sessionProfile.Games == '1' ? true : false;
@@ -65,12 +65,11 @@ export class ProfileComponent implements OnInit {
     this.UserProfileModel.modelling =
       sessionProfile.Modelling == '1' ? true : false;
 
-    console.log(this.UserProfileModel);
     this.form.patchValue({
       username: this.UserProfileModel.username,
       password: this.UserProfileModel.password,
       phone: this.UserProfileModel.phone,
-      remarks: this.UserProfileModel.remarks,
+      remarks: this.UserProfileModel.Remarks,
       linkedIn: this.UserProfileModel.linkedIn,
       audio: this.UserProfileModel.audio,
       games: this.UserProfileModel.games,
@@ -84,7 +83,6 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
     this.submitted = true;
 
     // reset alerts on submit
@@ -118,9 +116,6 @@ export class ProfileComponent implements OnInit {
 
     this.UserProfileUpdateModel.workcat = this.tempWorkcat.join(';');
 
-    console.log(this.tempWorkcat);
-    console.log(this.UserProfileUpdateModel);
-    console.log(this.UserProfileModel.id);
     this.accountService
       .updateProfile(this.UserProfileModel.id, this.UserProfileUpdateModel)
       .pipe(first())

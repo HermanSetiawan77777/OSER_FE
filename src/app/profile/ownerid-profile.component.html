@@ -4,90 +4,101 @@
       Profil Pemilik
     </h1>
   </div>
-  <div *ngFor="let ownerProfile of ownerProfiles" style="margin-top: 20px">
-    <div class="row">
-      <div class="col">
-        <div class="mb-3">
-          <div class="card-body">
-            <div class="row align-items-center" style="margin-bottom: 15px">
-              <div class="col-sm-3">
-                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Nama Pemilik</h6>
-              </div>
-              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
-                {{ownerProfile.username}}
-              </div>
+  <div class="row">
+    <div class="col">
+      <div class="mb-3">
+        <div class="card-body">
+          <div class="row align-items-center" style="margin-bottom: 15px">
+            <div class="col-sm-3">
+              <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Nama Pemilik</h6>
             </div>
-            <div class="row align-items-center" style="margin-bottom: 15px">
-              <div class="col-sm-3">
-                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Email</h6>
-              </div>
-              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
-                {{ownerProfile.email}}
-              </div>
+            <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+              {{ownerProfile.username}}
             </div>
-            <div class="row align-items-center" style="margin-bottom: 15px">
-              <div class="col-sm-3">
-                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Nomor Handphone</h6>
-              </div>
-              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
-                {{ownerProfile.phone}}
-              </div>
+          </div>
+          <div class="row align-items-center" style="margin-bottom: 15px">
+            <div class="col-sm-3">
+              <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Email</h6>
             </div>
-            <div class="row align-items-center" style="margin-bottom: 15px">
-              <div class="col-sm-3">
-                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Begabung Pada</h6>
-              </div>
-              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
-                {{ownerProfile.createdDate | date}}
-              </div>
+            <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+              {{ownerProfile.email}}
             </div>
-            <div class="row align-items-center" style="margin-bottom: 15px">
-              <div class="col-sm-3">
-                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">LinkedIn</h6>
-              </div>
-              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
-                {{ownerProfile.linkedIn}}
-              </div>
+          </div>
+          <div class="row align-items-center" style="margin-bottom: 15px">
+            <div class="col-sm-3">
+              <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Jenis Kelamin</h6>
             </div>
-            <div class="row align-items-center" style="margin-bottom: 15px">
-              <div class="col-sm-3">
-                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Catatan</h6>
-              </div>
-              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
-                {{ownerProfile.Remarks}}
-              </div>
+            <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+              {{ownerProfile.gender}}
             </div>
-            <div class="row align-items-center" style="margin-bottom: 15px">
-              <div class="col-sm-3">
-                <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Kemampuan</h6>
-              </div>
-              <div class="col-sm-9 text-secondary" style="font-size: 20px;">
-                {{ownerProfile.Remarks}}
-              </div>
+          </div>
+          <div class="row align-items-center" style="margin-bottom: 15px">
+            <div class="col-sm-3">
+              <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Tanggal Lahir</h6>
+            </div>
+            <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+              {{ownerProfile.tanggallahir | date:'dd-MM-yyyy'}}
+            </div>
+          </div>
+          <div class="row align-items-center" style="margin-bottom: 15px">
+            <div class="col-sm-3">
+              <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Nomor Handphone</h6>
+            </div>
+            <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+              {{ownerProfile.phone}}
+            </div>
+          </div>
+          <div class="row align-items-center" style="margin-bottom: 15px">
+            <div class="col-sm-3">
+              <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Begabung Pada</h6>
+            </div>
+            <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+              {{ownerProfile.createdDate | date:'dd-MM-yyyy'}}
+            </div>
+          </div>
+          <div class="row align-items-center" style="margin-bottom: 15px">
+            <div class="col-sm-3">
+              <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">LinkedIn</h6>
+            </div>
+            <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+              {{ownerProfile.linkedIn}}
+            </div>
+          </div>
+          <div class="row align-items-center" style="margin-bottom: 15px">
+            <div class="col-sm-3">
+              <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Catatan</h6>
+            </div>
+            <div class="col-sm-9 text-secondary" style="font-size: 20px;">
+              {{ownerProfile.Remarks}}
+            </div>
+          </div>
+          <div class="row align-items-center mb-4">
+            <div class="col-sm-3">
+              <h6 style="font-size: 20px;" class="mb-0; font-weight-bold">Kemampuan</h6>
             </div>
             <div class="form-group-m-auto ml-2">
               <div class="container-mx-0">
                 <div class="row no-gutters">
                   <div class="col-md-auto mx-1">
-                    <input type="checkbox" ng-model="all" formControlName="audio" [checked]="UserProfileModel.audio" />
+                    <input type="checkbox" [checked]="ownerProfile.audio" [disabled]="true" />
                   </div>
                   <div class="col-m-auto mr-1">
                     <label for="audio">Audio, Video, Photography</label>
                   </div>
                   <div class="col-md-auto mx-1">
-                    <input type="checkbox" formControlName="games" [checked]="UserProfileModel.games" />
+                    <input type="checkbox" [checked]="ownerProfile.games" [disabled]="true" />
                   </div>
                   <div class="col-md-auto mr-1">
                     <label for="games">Games Development</label>
                   </div>
                   <div class="col-md-auto mx-1">
-                    <input type="checkbox" formControlName="website" [checked]="UserProfileModel.website" />
+                    <input type="checkbox" [checked]="ownerProfile.website" [disabled]="true" />
                   </div>
                   <div class="col-md-auto mr-1">
                     <label for="website">Website Development</label>
                   </div>
                   <div class="col-md-auto mx-1">
-                    <input type="checkbox" formControlName="modelling" [checked]="UserProfileModel.modelling" />
+                    <input type="checkbox" [checked]="ownerProfile.modelling" [disabled]="true" />
                   </div>
                   <div class="col-md-auto mr-1">
                     <label for="modelling">3D modeling & Animation</label>
@@ -95,10 +106,10 @@
                 </div>
               </div>
             </div>
-            <div class="row align-items-center" style="margin-bottom: 15px">
-              <div class="col">
-                <button class="btn btn-primary" (click)="goto()">Lihat Ulasan Pemilik</button>
-              </div>
+          </div>
+          <div class="row align-items-center" style="margin-bottom: 15px">
+            <div class="col">
+              <button class="btn btn-primary" (click)="goto()">Lihat Ulasan Pemilik</button>
             </div>
           </div>
         </div>

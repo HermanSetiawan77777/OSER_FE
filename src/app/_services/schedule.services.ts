@@ -59,4 +59,17 @@ export class ScheduleServices {
       }
     );
   }
+
+  confirmPayment(scheduleId: string, userStatus: string) {
+    let header = new HttpHeaders();
+    header = header.set('TOKEN', localStorage.getItem('token').slice(1, -1));
+
+    return this.http.post(
+      `${environment.apiUrl}/schedule/UpdateSchedulePayment/${userStatus}/${scheduleId}`,
+      {},
+      {
+        headers: header,
+      }
+    );
+  }
 }

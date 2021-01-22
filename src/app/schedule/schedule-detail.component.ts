@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { ScheduleServices } from '../_services/schedule.services';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   templateUrl: 'schedule-detail.component.html',
@@ -55,18 +56,18 @@ export class ScheduleDetailComponent implements OnInit {
       if (this.schedules[0].StatusNo == 0) {
         this.acceptBtn = true;
         this.cancelBtn = true;
-      }else if (this.schedules[0].StatusNo == 1) {
-      if (this.schedules[0].Category=='jasa') {
-        this.finnishBtn = true;
-      }
-    }else if (this.schedules[0].StatusNo == 2) {
+      } else if (this.schedules[0].StatusNo == 1) {
+        if (this.schedules[0].Category == 'jasa') {
+          this.finnishBtn = true;
+        }
+      } else if (this.schedules[0].StatusNo == 2) {
         this.paymentbtn = true;
       }
     } else {
       if (this.schedules[0].StatusNo == 0) {
         this.cancelBtn = true;
       } else if (this.schedules[0].StatusNo == 1) {
-        if (this.schedules[0].Category=='proyek') {
+        if (this.schedules[0].Category == 'proyek') {
           this.finnishBtn = true;
         }
       } else if (this.schedules[0].StatusNo == 2) {
@@ -110,5 +111,34 @@ export class ScheduleDetailComponent implements OnInit {
     sessionStorage.setItem('assigmentId', this.schedules[0]._id);
 
     this.router.navigate(['/review'], { relativeTo: this.route });
+  }
+
+  checkPayment() {
+    let sessionProfile = JSON.parse(localStorage.getItem('userProfile'));
+    let userStatus =
+      this.schedules[0].OwnerID == sessionProfile.userid ? 'owner' : 'user';
+
+    if (userStatus == 'owner' && this.schedules[0].PaymentOwner) {
+      Swal.fire(
+        'Anda telah melakukan konfirmasi pembayaran!',
+        'Tidak dapat mengkonfirmasi ulang',
+        'warning'
+      );
+
+      return;
+    } else if (userStatus == 'user' && this.schedules[0].PaymentUser) {
+      Swal.fire(
+        'Anda telah melakukan konfirmasi pembayaran!',
+        'Tidak dapat mengkonfirmasi ulang',
+        'warning'
+      );
+
+      return;
+    }
+
+    this.router.navigate(
+      [`/schedule/schedule/paymentDetail/${this.schedules[0]._id}`],
+      { relativeTo: this.route }
+    );
   }
 }

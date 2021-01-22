@@ -11,12 +11,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class OwneridProfileComponent implements OnInit {
   form: FormGroup;
-  
+
   ownerId: string;
-  ownerProfiles: UserProfilePage;
+  ownerProfile: UserProfilePage;
   imageSrc: string;
   // UserProfileModel: UserProfilePage;
-
 
   constructor(
     private accountServices: AccountService,
@@ -25,45 +24,29 @@ export class OwneridProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.ownerProfile = new UserProfilePage();
+
     const url = window.location.pathname;
-    this.ownerProfiles = new UserProfilePage();
     this.ownerId = url.substring(url.lastIndexOf('/') + 1);
+
     console.log(this.ownerId);
     this.accountServices
       .userProfile(this.ownerId)
       .pipe(first())
       .subscribe((ownerProfile) => {
-        this.ownerProfiles = ownerProfile.message;
-        console.log(this.ownerProfiles);
-        console.log(this.ownerProfiles);
-        // console.log(this.UserProfileModel);
+        this.ownerProfile = ownerProfile.message[0];
+        console.log(this.ownerProfile);
 
-
-        // this.UserProfileModel.audio = this.ownerProfiles.audio == '1' ? true : false;
-        // this.UserProfileModel.games = sessionProfile.Games == '1' ? true : false;
-        // this.UserProfileModel.website =
-        //   sessionProfile.Website == '1' ? true : false;
-        // this.UserProfileModel.modelling =
-        //   sessionProfile.Modelling == '1' ? true : false;
+        this.ownerProfile.audio =
+          ownerProfile.message[0].Audio == '1' ? true : false;
+        this.ownerProfile.games =
+          ownerProfile.message[0].Games == '1' ? true : false;
+        this.ownerProfile.website =
+          ownerProfile.message[0].Website == '1' ? true : false;
+        this.ownerProfile.modelling =
+          ownerProfile.message[0].Modelling == '1' ? true : false;
       });
-
-
-
-      this.form.patchValue({
-        // username: this.UserProfileModel.username,
-        // password: this.UserProfileModel.password,
-        // phone: this.UserProfileModel.phone,
-        // remarks: this.UserProfileModel.remarks,
-        // linkedIn: this.UserProfileModel.linkedIn,
-        audio: this.ownerProfiles.audio,
-        games: this.ownerProfiles.games,
-        website: this.ownerProfiles.website,
-        modelling: this.ownerProfiles.modelling,
-      });
-
   }
-
-  
 
   goto() {
     this.router.navigate([`/review/list/${this.ownerId}`], {

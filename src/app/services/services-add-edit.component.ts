@@ -41,7 +41,7 @@ export class ServicesAddEditComponent implements OnInit {
       duration: ['', Validators.required],
       price: ['', Validators.required],
       image: [''],
-      remarks: ['']
+      remarks: [''],
     });
 
     if (!this.isAddMode) {
@@ -49,10 +49,11 @@ export class ServicesAddEditComponent implements OnInit {
         .detailServices(this.id)
         .pipe(first())
         .subscribe((services) => {
+          console.log(services);
           this.services = services.message;
           if (
-            this.services[0].Image !== undefined ||
-            this.services[0].Image !== null
+            this.services[0].Image != undefined ||
+            this.services[0].Image != null
           ) {
             const imageId = this.services[0].Image.split('/')[1];
             this.imageSrc = `${environment.apiUrl}/files/ViewLicense/${imageId}`;

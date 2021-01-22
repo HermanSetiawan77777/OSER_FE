@@ -1,4 +1,4 @@
-export class Services{
+export class Services {
   message: string;
   id: string;
   ownerid: string;
@@ -10,5 +10,6 @@ export class Services{
   email: string;
   remarks: string;
   file: File;
+  PaymentOwner: boolean;
+  PaymentUser: boolean;
 }
-
