@@ -118,7 +118,8 @@ export class ScheduleDetailComponent implements OnInit {
     let userStatus =
       this.schedules[0].OwnerID == sessionProfile.userid ? 'owner' : 'user';
 
-    if (userStatus == 'owner' && this.schedules[0].PaymentOwner) {
+    if (userStatus == 'owner' && this.schedules[0].PaymentOwner=='true') {
+      console.log('masuk owner')
       Swal.fire(
         'Anda telah melakukan konfirmasi pembayaran!',
         'Tidak dapat mengkonfirmasi ulang',
@@ -126,7 +127,8 @@ export class ScheduleDetailComponent implements OnInit {
       );
 
       return;
-    } else if (userStatus == 'user' && this.schedules[0].PaymentUser) {
+    } else if (userStatus == 'user' && this.schedules[0].PaymentUser=='true') {
+      console.log('masuk user')
       Swal.fire(
         'Anda telah melakukan konfirmasi pembayaran!',
         'Tidak dapat mengkonfirmasi ulang',
