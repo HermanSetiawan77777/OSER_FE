@@ -55,14 +55,20 @@ export class ScheduleDetailComponent implements OnInit {
       if (this.schedules[0].StatusNo == 0) {
         this.acceptBtn = true;
         this.cancelBtn = true;
-      } else if (this.schedules[0].StatusNo == 2) {
+      }else if (this.schedules[0].StatusNo == 1) {
+      if (this.schedules[0].Category=='jasa') {
+        this.finnishBtn = true;
+      }
+    }else if (this.schedules[0].StatusNo == 2) {
         this.paymentbtn = true;
       }
     } else {
       if (this.schedules[0].StatusNo == 0) {
         this.cancelBtn = true;
       } else if (this.schedules[0].StatusNo == 1) {
-        this.finnishBtn = true;
+        if (this.schedules[0].Category=='proyek') {
+          this.finnishBtn = true;
+        }
       } else if (this.schedules[0].StatusNo == 2) {
         this.reviewBtn = true;
         this.paymentbtn = true;
