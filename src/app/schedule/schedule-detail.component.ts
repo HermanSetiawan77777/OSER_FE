@@ -118,25 +118,25 @@ export class ScheduleDetailComponent implements OnInit {
     let userStatus =
       this.schedules[0].OwnerID == sessionProfile.userid ? 'owner' : 'user';
 
-    if (userStatus == 'owner' && this.schedules[0].PaymentOwner=='true') {
-      console.log('masuk owner')
-      Swal.fire(
-        'Anda telah melakukan konfirmasi pembayaran!',
-        'Tidak dapat mengkonfirmasi ulang',
-        'warning'
-      );
+    // if (userStatus == 'owner' && this.schedules[0].PaymentOwner=='true') {
+    //   console.log('masuk owner')
+    //   Swal.fire(
+    //     'Anda telah melakukan konfirmasi pembayaran!',
+    //     'Tidak dapat mengkonfirmasi ulang',
+    //     'warning'
+    //   );
 
-      return;
-    } else if (userStatus == 'user' && this.schedules[0].PaymentUser=='true') {
-      console.log('masuk user')
-      Swal.fire(
-        'Anda telah melakukan konfirmasi pembayaran!',
-        'Tidak dapat mengkonfirmasi ulang',
-        'warning'
-      );
+    //   return;
+    // } else if (userStatus == 'user' && this.schedules[0].PaymentUser=='true') {
+    //   console.log('masuk user')
+    //   Swal.fire(
+    //     'Anda telah melakukan konfirmasi pembayaran!',
+    //     'Tidak dapat mengkonfirmasi ulang',
+    //     'warning'
+    //   );
 
-      return;
-    }
+    //   return;
+    // }
 
     this.router.navigate(
       [`/schedule/schedule/paymentDetail/${this.schedules[0]._id}`],

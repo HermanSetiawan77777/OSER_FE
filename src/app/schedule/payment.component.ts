@@ -39,6 +39,28 @@ export class PaymentComponent implements OnInit {
     let userStatus =
       this.priceDetail.OwnerID == sessionProfile.userid ? 'owner' : 'user';
 
+      console.log(this.priceDetail)
+    if (userStatus == 'owner' && this.priceDetail.PaymentOwner=='true') {
+      console.log('masuk owner')
+      Swal.fire(
+        'Anda telah melakukan konfirmasi pembayaran!',
+        'Tidak dapat mengkonfirmasi ulang',
+        'warning'
+      );
+
+      return;
+    } else if (userStatus == 'user' && this.priceDetail.PaymentUser=='true') {
+      console.log('masuk user')
+      Swal.fire(
+        'Anda telah melakukan konfirmasi pembayaran!',
+        'Tidak dapat mengkonfirmasi ulang',
+        'warning'
+      );
+
+      return;
+    }
+
+
     Swal.fire({
       title: 'Apakah anda yakin pembayaran telah selesai ?',
       text: 'Anda tidak dapat mebatalkannya !',
