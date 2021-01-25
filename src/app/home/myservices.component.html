@@ -4,8 +4,8 @@
   <thead>
   <tr>
     <th style="width: 15%">Nama Pemilik</th>
-    <th style="width: 15%">Judul Jasa</th>
     <th style="width: 15%">Kategori</th>
+    <th style="width: 15%">Nama Jasa</th>
     <th style="width: 15%">Durasi</th>
     <th style="width: 15%">Harga</th>
     <th style="width: 30%">Deskripsi Pekerjaan</th>
@@ -14,8 +14,8 @@
   <tbody>
   <tr *ngFor="let service of pageOfItems">
     <td>{{service.OwnerName}}</td>
-    <td>{{service.ServicesName}}</td>
     <td>{{service.Category}}</td>
+    <td>{{service.ServicesName}}</td>
     <td>{{service.Duration}} Hari</td>
     <td>Rp.{{service.Price}},-</td>
     <td>{{ service.Remarks | truncate: 30}}</td>
