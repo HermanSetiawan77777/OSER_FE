@@ -22,7 +22,8 @@
     <td>{{project.Duration}} Hari</td>
     <td>{{project.Remarks | truncate: 30}}</td>
     <td style="white-space: nowrap">
-      <a routerLink="../project/detail/{{project._id}}" class="btn btn-sm btn-info mr-1">Detail</a>
+      <!-- <a routerLink="../project/detail/{{project._id}}" class="btn btn-sm btn-info mr-1">Detail</a> -->
+      <a routerLink="../" ><img src="\assets\images\logo081.png" alt="" style="width:70px;height:35px;">Detail</a>
       <a routerLink="../project/edit/{{project._id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
       <button (click)="deleteProjects(project._id)" class="btn btn-sm btn-danger btn-delete-user">
         Hapus
